@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aclonica</item>
+        <item>@font/afacad_semibold</item>
+        <item>@font/alata</item>
+        <item>@font/alfa_slab_one</item>
+        <item>@font/audiowide</item>
+        <item>@font/baloo</item>
+        <item>@font/bangers</item>
+        <item>@font/electrolize</item>
+        <item>@font/faster_one</item>
+        <item>@font/inter_semibold</item>
+        <item>@font/konkhmer_sleokchher</item>
+        <item>@font/lemon</item>
+        <item>@font/mclaren</item>
+        <item>@font/merienda_one</item>
+        <item>@font/mochiy_pop_one</item>
+        <item>@font/nova_oval</item>
+        <item>@font/press_start_2p</item>
+        <item>@font/protest_riot</item>
+        <item>@font/rem</item>
+        <item>@font/rem_bold</item>
+        <item>@font/rem_light</item>
+        <item>@font/rem_medium</item>
+        <item>@font/russo_one</item>
+    </array>
+</resources>
