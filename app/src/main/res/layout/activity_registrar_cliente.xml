@@ -52,117 +52,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3" />
 
-    <TableLayout
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="376dp"
-        android:layout_height="527dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
+        android:animateLayoutChanges="false"
+        android:contentDescription="TableLayout"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_menu2"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabMode="fixed" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager2"
+        android:layout_width="401dp"
+        android:layout_height="447dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_menu2">
-
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="start|end">
-
-            <TextView
-                android:id="@+id/tv_datos"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="DATOS PERSONALES" />
-
-            <TextView
-                android:id="@+id/tv_contacto"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="CONTACTO" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="match_parent"
-            android:layout_height="152dp">
-
-            <EditText
-                android:id="@+id/et_nombre"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:fontFamily="@font/rem"
-                android:hint="Nombre"
-                android:inputType="text"
-                android:textColor="#212121"
-                android:textSize="16sp" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/et_apellido"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:fontFamily="@font/rem"
-                android:hint="Apellido"
-                android:inputType="text"
-                android:textColor="#212121"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Spinner
-                android:id="@+id/spinnerTipo"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:spinnerMode="dropdown" />
-
-            <EditText
-                android:id="@+id/et_numbero"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:ems="10"
-                android:fontFamily="@font/rem"
-                android:hint="Numero"
-                android:inputType="number"
-                android:textColor="#212121"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#212121"
-                android:text="Apto físico"
-                android:textColorLink="#212121" />
-
-            <CheckBox
-                android:id="@+id/checkBox2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#212121"
-                android:text="¿Es socio/a?"
-                android:textColorLink="#212121" />
-        </TableRow>
-
-    </TableLayout>
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        app:layout_constraintVertical_bias="0.255" />
 
     <ImageView
         android:id="@+id/img_volver"
