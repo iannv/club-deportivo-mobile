@@ -17,8 +17,10 @@
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:ems="10"
+            android:fontFamily="@font/rem"
             android:hint="E-mail"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/et_tel"
@@ -26,8 +28,10 @@
             android:layout_height="50dp"
             android:layout_marginTop="35dp"
             android:ems="10"
+            android:fontFamily="@font/rem"
             android:hint="Teléfono"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/et_domicilio"
@@ -35,8 +39,10 @@
             android:layout_height="50dp"
             android:layout_marginTop="35dp"
             android:ems="10"
+            android:fontFamily="@font/rem"
             android:hint="Domicilio"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="350dp"
@@ -50,7 +56,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:text="Limpiar" />
+                android:height="48dp"
+                android:fontFamily="@font/rem"
+                android:text="Limpiar"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btnRegistrar"
@@ -58,8 +67,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
+                android:height="48dp"
                 android:backgroundTint="#212121"
-                android:text="Registrar" />
+                android:fontFamily="@font/rem"
+                android:text="Registrar"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
