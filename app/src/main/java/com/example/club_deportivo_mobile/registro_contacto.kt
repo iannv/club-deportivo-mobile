@@ -1,13 +1,15 @@
 package com.example.club_deportivo_mobile
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +34,7 @@ class registro_contacto : Fragment() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,10 +42,26 @@ class registro_contacto : Fragment() {
         val view = inflater.inflate(R.layout.fragment_registro_contacto, container, false)
 
         val btnRegistrar = view.findViewById<Button>(R.id.btnRegistrar)
+        val limpiar = view.findViewById<Button>(R.id.btnLimpiar2)
+        var email = view.findViewById<TextView>(R.id.et_email)
+        var tel = view.findViewById<TextView>(R.id.et_tel)
+        var domicilio = view.findViewById<TextView>(R.id.et_domicilio)
+
+        // Registrar cliente
         btnRegistrar.setOnClickListener {
             val intent = Intent(requireContext(), carnet::class.java)
             startActivity(intent)
         }
+
+        // Limpiar campos
+        limpiar.setOnClickListener {
+            email.setText("")
+            tel.setText("")
+            domicilio.setText("")
+
+            email.requestFocus()
+        }
+
         return view
     }
 

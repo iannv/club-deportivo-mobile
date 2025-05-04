@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/et_mail"
+            android:id="@+id/et_nombre"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:ems="10"
@@ -22,7 +22,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/et_tel"
+            android:id="@+id/et_apellido"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:layout_marginTop="35dp"
@@ -100,7 +100,7 @@
             <Button
                 android:id="@+id/btnContinuar"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:height="48dp"
