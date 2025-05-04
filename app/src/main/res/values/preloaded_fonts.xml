@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/rem</item>
+        <item>@font/rem_bold</item>
+        <item>@font/rem_light</item>
+        <item>@font/rem_medium</item>
+    </array>
+</resources>
