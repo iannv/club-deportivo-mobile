@@ -1,10 +1,16 @@
 package com.example.club_deportivo_mobile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.Spinner
+import android.widget.TextView
+import androidx.viewpager2.widget.ViewPager2
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +39,37 @@ class registro_datosPersonales : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registro_datos_personales, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_registro_datos_personales, container, false)
+
+        val btnContinuar = view.findViewById<Button>(R.id.btnContinuar)
+        var limpiar = view.findViewById<Button>(R.id.btnLimpiar)
+
+        var nombre = view.findViewById<TextView>(R.id.et_nombre)
+        var apellido = view.findViewById<TextView>(R.id.et_apellido)
+        var tipo = view.findViewById<Spinner>(R.id.spinner_tipo)
+        var numero = view.findViewById<TextView>(R.id.et_numero)
+        var esApto = view.findViewById<CheckBox>(R.id.chk_apto)
+        var esSocio = view.findViewById<CheckBox>(R.id.chk_socio)
+
+        btnContinuar.setOnClickListener {
+            val viewpager = requireActivity().findViewById<ViewPager2>(R.id.viewPager2)
+            viewpager.currentItem = 1
+        }
+
+        // Limpiar campos
+        limpiar.setOnClickListener {
+            nombre.setText("")
+            apellido.setText("")
+            tipo.setSelection(0)
+            numero.setText("")
+            esApto.isChecked = false
+            esSocio.isChecked = false
+
+            nombre.requestFocus()
+        }
+
+        return view
     }
 
     companion object {
