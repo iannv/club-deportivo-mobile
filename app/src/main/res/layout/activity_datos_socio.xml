@@ -7,4 +7,220 @@
     android:layout_height="match_parent"
     tools:context=".datos_socio">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_datos_socio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#212121"
+        android:minHeight="50dp"
+        android:theme="?attr/actionButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_volver_datos"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_datos_socio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_datos_socio"
+        app:srcCompat="@drawable/volver" />
+
+    <TextView
+        android:id="@+id/tv_admin_datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/rem"
+        android:text="Admin"
+        android:textColor="#606060"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_datos_socio" />
+
+    <ImageView
+        android:id="@+id/imageView_admin_datos"
+        android:layout_width="12dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_admin_datos"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin_datos"
+        app:layout_constraintTop_toTopOf="@+id/tv_admin_datos"
+        app:srcCompat="@drawable/admin" />
+
+    <TextView
+        android:id="@+id/tv_datos_socio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/rem_bold"
+        android:text="DATOS DEL SOCIO"
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_datos_socio" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_datos_socio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_datos_socio"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/img_perfil_socio"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                app:srcCompat="@drawable/ic_profile_placeholder" />
+
+            <TextView
+                android:id="@+id/tv_apellido_nombre_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem_bold"
+                android:text="APELLIDO\nY NOMBRE:"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_apellido_nombre_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem"
+                android:text="RODRIGUEZ, KEVIN"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_dni_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem_bold"
+                android:text="DNI:"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_dni_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem"
+                android:text="42094572"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_socio_nro_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem_bold"
+                android:text="SOCIO N°:"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_socio_nro_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem"
+                android:text="500"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_telefono_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem_bold"
+                android:text="TELEFONO:"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_telefono_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem"
+                android:text="1122334455"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_alta_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem_bold"
+                android:text="ALTA:"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_alta_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem"
+                android:text="12/03/2025"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_cuota_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem_bold"
+                android:text="CUOTA:"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_cuota_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rem"
+                android:text="5000"
+                android:textColor="#212121"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/main"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".datos_socio">-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

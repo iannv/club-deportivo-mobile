@@ -7,4 +7,101 @@
     android:layout_height="match_parent"
     tools:context=".buscar_cliente">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_buscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#212121"
+        android:minHeight="50dp"
+        android:theme="?attr/actionButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_volver_buscar"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_buscar_cliente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_buscar"
+        app:srcCompat="@drawable/volver" />
+
+    <TextView
+        android:id="@+id/tv_admin_buscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/rem"
+        android:text="Admin"
+        android:textColor="#606060"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_buscar" />
+
+    <ImageView
+        android:id="@+id/imageView_admin_buscar"
+        android:layout_width="12dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_admin_buscar"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin_buscar"
+        app:layout_constraintTop_toTopOf="@+id/tv_admin_buscar"
+        app:srcCompat="@drawable/admin" />
+
+    <TextView
+        android:id="@+id/tv_buscar_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/rem_bold"
+        android:text="BUSCAR\nCLIENTE"
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_buscar" />
+
+    <TextView
+        android:id="@+id/tv_ingrese_dni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/rem"
+        android:text="INGRESE EL DNI DEL CLIENTE"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_buscar_cliente" />
+
+    <EditText
+        android:id="@+id/et_dni_buscar"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint=""
+        android:textAlignment="center"
+        android:background="@drawable/edit_text_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ingrese_dni" />
+
+    <Button
+        android:id="@+id/btn_buscar"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#212121"
+        android:fontFamily="@font/rem"
+        android:text="BUSCAR"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dni_buscar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Colores personalizados -->
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryVariant">#FF000000</color>
+    <color name="colorSecondary">#212121</color>
+    <!-- <color name="colorSecondary">#FF9800</color> -->
 </resources>

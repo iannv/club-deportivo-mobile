@@ -15,7 +15,6 @@
 local.properties
 
 .idea/
-/gradle
 ## /captures
 **/*.iml
 gradlew
