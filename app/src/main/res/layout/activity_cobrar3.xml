@@ -61,12 +61,12 @@
 
 
     <Button
-        android:id="@+id/tv_btnBuscar"
+        android:id="@+id/tv_btnVolver"
         android:layout_width="156dp"
         android:layout_height="52dp"
         android:width="20dp"
         android:backgroundTint="@color/white"
-        android:text="BUSCAR"
+        android:text="Volver"
         android:textColor="#0B0A0A"
         app:cornerRadius="0dp"
         app:strokeColor="@color/black"
@@ -75,11 +75,11 @@
         tools:layout_editor_absoluteY="654dp" />
 
     <Button
-        android:id="@+id/tv_btnCobrar"
+        android:id="@+id/tv_btnImprimir"
         android:layout_width="167dp"
         android:layout_height="53dp"
         android:backgroundTint="@color/black"
-        android:text="COBRAR"
+        android:text="IMPRIMIR"
         app:cornerRadius="0dp"
         app:strokeColor="#070707"
         tools:layout_editor_absoluteX="217dp"
