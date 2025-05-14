@@ -63,11 +63,13 @@
         android:id="@+id/tv_dniCampo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:inputType="text"
         android:text="20.200.200"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_menu" />
 
     <TextView
         android:id="@+id/tv_dniLabel"
