@@ -5,36 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash2"
     tools:context=".MainActivity"
     tools:visibility="visible">
-
-    <LinearLayout
-        android:id="@+id/layoutLanding"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.5"
-        android:background="@drawable/landing"
-        android:orientation="vertical"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_iniciarSesion"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="292dp"
-        android:text="Iniciar sesión"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tx_clubDeportivo"
@@ -43,12 +16,37 @@
         android:layout_marginTop="96dp"
         android:fontFamily="@font/rem_bold"
         android:text="Club Deportivo"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_iniciarSesion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.07" />
+
+    <Button
+        android:id="@+id/btn_iniciarSesion"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="224dp"
+        android:text="Iniciar sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="#E3E3E3"
+        android:text="Registrarme"
+        android:textColor="#212121"
+        android:textColorLink="#212121"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_iniciarSesion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
