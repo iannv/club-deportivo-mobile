@@ -47,10 +47,9 @@
         <activity
             android:name=".menuPrincipal"
             android:exported="false"
-            android:parentActivityName=".login" />
         <activity
             android:name=".login"
-            android:exported="true" /> <!-- cambiar a false -->
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
