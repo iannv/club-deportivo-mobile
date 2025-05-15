@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cobrar">
+    tools:context=".cobrar3">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -58,50 +59,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
-    <EditText
-        android:id="@+id/tv_dniCampo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="20.200.200"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="279dp" />
-
-    <TextView
-        android:id="@+id/tv_dniLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DNI"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="260dp" />
-
-
-    <EditText
-        android:id="@+id/tv_montoCampo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="$2300"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <TextView
-        android:id="@+id/tv_montoLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MONTO"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="346dp" />
 
     <Button
-        android:id="@+id/tv_btnBuscar"
+        android:id="@+id/tv_btnVolver"
         android:layout_width="156dp"
         android:layout_height="52dp"
         android:width="20dp"
         android:backgroundTint="@color/white"
-        android:text="BUSCAR"
+        android:text="Volver"
         android:textColor="#0B0A0A"
         app:cornerRadius="0dp"
         app:strokeColor="@color/black"
@@ -110,14 +75,90 @@
         tools:layout_editor_absoluteY="654dp" />
 
     <Button
-        android:id="@+id/tv_btnCobrar"
+        android:id="@+id/tv_btnImprimir"
         android:layout_width="167dp"
         android:layout_height="53dp"
         android:backgroundTint="@color/black"
-        android:text="COBRAR"
+        android:text="IMPRIMIR"
         app:cornerRadius="0dp"
         app:strokeColor="#070707"
         tools:layout_editor_absoluteX="217dp"
         tools:layout_editor_absoluteY="653dp" />
+
+    <Button
+        android:id="@+id/btnAuxRecuadro"
+        android:layout_width="353dp"
+        android:layout_height="402dp"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="209dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: Juan"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="280dp" />
+
+    <TextView
+        android:id="@+id/tv_clienteEncontrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comprobante de pago"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socio n°4567"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="254dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo: Cuota"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="370dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellido: Perez"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="311dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SOCIO"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha: 04/06/2025"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monto: $ 5000"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="551dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

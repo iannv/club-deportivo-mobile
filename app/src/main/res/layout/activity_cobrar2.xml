@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cobrar">
+    tools:context=".cobrar2">
+
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -62,11 +63,13 @@
         android:id="@+id/tv_dniCampo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:inputType="text"
         android:text="20.200.200"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_menu" />
 
     <TextView
         android:id="@+id/tv_dniLabel"
@@ -119,5 +122,58 @@
         app:strokeColor="#070707"
         tools:layout_editor_absoluteX="217dp"
         tools:layout_editor_absoluteY="653dp" />
+
+    <Button
+        android:id="@+id/btnAuxRecuadro"
+        android:layout_width="341dp"
+        android:layout_height="189dp"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="0dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="433dp" />
+
+    <TextView
+        android:id="@+id/tv_clienteEncontrado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cliente encontrado"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="453dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socio n°4567"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="483dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre: Juan"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="502dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellido: Perez"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Socio"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="551dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,7 +84,7 @@
         android:id="@+id/cardCarnet"
         android:layout_width="359dp"
         android:layout_height="230dp"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toTopOf="@+id/btnImprimir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="#59FF9800"
+                android:background="#599A9A9A"
                 android:gravity="center"
                 android:orientation="vertical">
 
