@@ -60,64 +60,74 @@
 
     <EditText
         android:id="@+id/tv_dniCampo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="225dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="32dp"
         android:ems="10"
         android:inputType="text"
         android:text="20.200.200"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dniLabel" />
 
     <TextView
         android:id="@+id/tv_dniLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="210dp"
         android:text="DNI"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
 
     <EditText
         android:id="@+id/tv_montoCampo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="219dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="32dp"
         android:ems="10"
         android:inputType="text"
         android:text="$2300"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="365dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_montoLabel" />
 
     <TextView
         android:id="@+id/tv_montoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="22dp"
         android:text="MONTO"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="346dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dniCampo" />
 
     <Button
         android:id="@+id/tv_btnBuscar"
         android:layout_width="156dp"
         android:layout_height="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="224dp"
         android:width="20dp"
         android:backgroundTint="@color/white"
         android:text="BUSCAR"
         android:textColor="#0B0A0A"
         app:cornerRadius="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_montoCampo"
         app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="654dp" />
+        app:strokeWidth="1dp" />
 
     <Button
         android:id="@+id/tv_btnCobrar"
         android:layout_width="167dp"
         android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="224dp"
         android:backgroundTint="@color/black"
         android:text="COBRAR"
         app:cornerRadius="0dp"
-        app:strokeColor="#070707"
-        tools:layout_editor_absoluteX="217dp"
-        tools:layout_editor_absoluteY="653dp" />
+        app:layout_constraintStart_toEndOf="@+id/tv_btnBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_montoCampo"
+        app:strokeColor="#070707" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
