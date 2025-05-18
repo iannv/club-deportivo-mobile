@@ -1,15 +1,18 @@
 package com.example.club_deportivo_mobile
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class menuPrincipal : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +28,8 @@ class menuPrincipal : AppCompatActivity() {
         val btnActividades = findViewById<Button>(R.id.btn_actividades_socio)
         val btnCobrar = findViewById<Button>(R.id.btn_cobrar)
         val btnVtos = findViewById<Button>(R.id.btn_vtos)
+        val cerrarSesion = findViewById<ImageView>(R.id.img_cerrar_sesion)
+        val salir = findViewById<TextView>(R.id.tv_salir)
 
 
         btnRegistrar.setOnClickListener{
@@ -49,6 +54,16 @@ class menuPrincipal : AppCompatActivity() {
 
         btnVtos.setOnClickListener {
             var intent = Intent(this, lista_vencimientos::class.java)
+            startActivity(intent)
+        }
+
+        cerrarSesion.setOnClickListener {
+            var intent = Intent(this, login::class.java)
+            startActivity(intent)
+        }
+
+        salir.setOnClickListener {
+            var intent = Intent(this, login::class.java)
             startActivity(intent)
         }
 

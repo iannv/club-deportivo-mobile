@@ -35,6 +35,16 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <ImageView
+        android:id="@+id/img_volver_buscar4"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:srcCompat="@drawable/volver" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="12dp"
         android:layout_height="10dp"
@@ -67,8 +77,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
         android:ems="10"
+        android:fontFamily="@font/rem"
         android:inputType="text"
         android:text="$2300"
+        android:textSize="16sp"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_montoLabel" />
 
@@ -78,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="176dp"
+        android:fontFamily="@font/rem_medium"
         android:text="DNI"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
@@ -89,8 +103,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:ems="10"
+        android:fontFamily="@font/rem"
         android:inputType="text"
         android:text="20.200.200"
+        android:textSize="16sp"
+        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_menu" />
 
@@ -100,36 +117,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/rem_medium"
         android:text="MONTO"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_dniCampo" />
 
     <Button
-        android:id="@+id/tv_btnBuscar"
-        android:layout_width="156dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:width="20dp"
-        android:backgroundTint="@color/white"
-        android:text="BUSCAR"
-        android:textColor="#0B0A0A"
-        app:cornerRadius="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAuxRecuadro"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp" />
-
-    <Button
         android:id="@+id/tv_btnCobrar"
         android:layout_width="167dp"
         android:layout_height="53dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="31dp"
-        android:backgroundTint="@color/black"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#212121"
+        android:fontFamily="@font/rem_medium"
+        android:gravity="center"
         android:text="COBRAR"
-        app:cornerRadius="0dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_btnBuscar"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAuxRecuadro"
         app:strokeColor="#070707" />
 
@@ -153,6 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="11dp"
+        android:fontFamily="@font/rem_medium"
         android:text="Cliente encontrado"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
@@ -166,6 +172,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="76dp"
+        android:fontFamily="@font/rem_light"
         android:text="Socio n°4567"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/btnAuxRecuadro" />
@@ -176,6 +183,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/rem_light"
         android:text="Nombre: Juan"
         android:translationX="-5dp"
         android:translationY="-60dp"
@@ -188,6 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/rem_light"
         android:text="Apellido: Perez"
         android:translationY="-55dp"
         app:layout_constraintStart_toStartOf="@+id/btnAuxRecuadro"
@@ -197,6 +206,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/rem_light"
         android:text="Socio"
         android:translationX="20dp"
         android:translationY="-30dp"

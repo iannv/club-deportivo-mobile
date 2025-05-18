@@ -20,6 +20,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageView
+        android:id="@+id/img_volver_buscar2"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:srcCompat="@drawable/volver" />
+
     <TextView
         android:id="@+id/tv_admin"
         android:layout_width="wrap_content"
@@ -102,32 +112,38 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_dniCampo" />
 
     <Button
+        android:id="@+id/tv_btnCobrar"
+        android:layout_width="167dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="204dp"
+        android:backgroundTint="#212121"
+        android:fontFamily="@font/rem_medium"
+        android:text="COBRAR"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintStart_toEndOf="@+id/tv_btnBuscar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_montoCampo"
+        app:strokeColor="#070707" />
+
+    <Button
         android:id="@+id/tv_btnBuscar"
         android:layout_width="156dp"
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="204dp"
         android:width="20dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/rem_medium"
         android:text="BUSCAR"
         android:textColor="#0B0A0A"
-        app:cornerRadius="0dp"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_montoCampo"
-        app:strokeColor="@color/black"
+        app:strokeColor="#212121"
         app:strokeWidth="1dp" />
-
-    <Button
-        android:id="@+id/tv_btnCobrar"
-        android:layout_width="167dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="224dp"
-        android:backgroundTint="@color/black"
-        android:text="COBRAR"
-        app:cornerRadius="0dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_btnBuscar"
-        app:layout_constraintTop_toBottomOf="@+id/tv_montoCampo"
-        app:strokeColor="#070707" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
