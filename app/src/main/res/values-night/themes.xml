@@ -3,5 +3,16 @@
     <style name="Base.Theme.Clubdeportivomobile" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorPrimaryContainer">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+        <item name="colorButtonNormal">@android:color/transparent</item>
     </style>
+    <style name="Theme.Clubdeportivomobile" parent="Base.Theme.Clubdeportivomobile" />
 </resources>
