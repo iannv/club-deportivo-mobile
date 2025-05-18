@@ -21,6 +21,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <ImageView
+        android:id="@+id/img_volver_buscar3"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:srcCompat="@drawable/volver" />
+
     <TextView
         android:id="@+id/tv_admin"
         android:layout_width="wrap_content"
@@ -61,33 +71,41 @@
 
 
     <Button
-        android:id="@+id/tv_btnVolver"
-        android:layout_width="156dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="25dp"
-        android:width="20dp"
-        android:backgroundTint="@color/white"
-        android:text="Volver"
-        android:textColor="#0B0A0A"
-        app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp" />
-
-    <Button
         android:id="@+id/tv_btnImprimir"
         android:layout_width="167dp"
         android:layout_height="53dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="25dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="#212121"
+        android:fontFamily="@font/rem_medium"
         android:text="IMPRIMIR"
-        app:cornerRadius="0dp"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAuxRecuadro"
+        app:layout_constraintVertical_bias="0.738"
         app:strokeColor="#070707" />
+
+    <Button
+        android:id="@+id/tv_btnVolver"
+        android:layout_width="156dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="25dp"
+        android:width="20dp"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/rem_medium"
+        android:text="VOLVER"
+        android:textColor="#0B0A0A"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAuxRecuadro"
+        app:layout_constraintVertical_bias="0.744"
+        app:strokeColor="#212121"
+        app:strokeWidth="1dp" />
 
     <Button
         android:id="@+id/btnAuxRecuadro"
@@ -110,6 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginBottom="36dp"
+        android:fontFamily="@font/rem_light"
         android:text="Nombre: Juan"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -120,6 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginBottom="56dp"
+        android:fontFamily="@font/rem_medium"
         android:text="Comprobante de pago"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
@@ -131,6 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/rem_light"
         android:text="Socio n°4567"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent" />
@@ -141,6 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="36dp"
+        android:fontFamily="@font/rem_light"
         android:text="Tipo: Cuota"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -151,6 +173,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="12dp"
+        android:fontFamily="@font/rem_light"
         android:text="Apellido: Perez"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent" />
@@ -161,6 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginBottom="36dp"
+        android:fontFamily="@font/rem_light"
         android:text="SOCIO"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent" />
@@ -171,6 +195,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="28dp"
+        android:fontFamily="@font/rem_light"
         android:text="Fecha: 04/06/2025"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent" />
@@ -181,6 +206,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/rem_light"
         android:text="Monto: $ 5000"
         app:layout_constraintBottom_toBottomOf="@+id/btnAuxRecuadro"
         app:layout_constraintStart_toStartOf="parent" />

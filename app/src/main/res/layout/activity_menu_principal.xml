@@ -60,72 +60,106 @@
 
     <Button
         android:id="@+id/btn_registrar_cliente"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="350sp"
+        android:layout_height="56sp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#212121"
         android:fontFamily="@font/rem"
         android:text="Registrar cliente"
         android:textSize="16sp"
+        app:cornerRadius="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_menu" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_menu"
+        app:strokeColor="@color/black" />
 
     <Button
         android:id="@+id/btn_buscar_cliente"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="350sp"
+        android:layout_height="56sp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
         android:fontFamily="@font/rem"
         android:text="Buscar cliente"
         android:textSize="16sp"
+        app:cornerRadius="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_registrar_cliente" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrar_cliente"
+        app:strokeColor="@color/black" />
 
     <Button
         android:id="@+id/btn_cobrar"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="350sp"
+        android:layout_height="56sp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
         android:fontFamily="@font/rem"
         android:text="Cobrar"
         android:textSize="16sp"
+        app:cornerRadius="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_actividades_socio" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_actividades_socio"
+        app:strokeColor="@color/black" />
 
     <Button
         android:id="@+id/btn_actividades_socio"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="350sp"
+        android:layout_height="56sp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
         android:fontFamily="@font/rem"
         android:text="Actividades del socio"
         android:textSize="16sp"
+        app:cornerRadius="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_cliente" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_buscar_cliente"
+        app:strokeColor="@color/black" />
 
     <Button
         android:id="@+id/btn_vtos"
-        android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="350sp"
+        android:layout_height="56sp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
         android:fontFamily="@font/rem"
         android:text="Listado de vencimientos"
         android:textSize="16sp"
+        app:cornerRadius="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_cobrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cobrar"
+        app:strokeColor="@color/black" />
+
+    <ImageView
+        android:id="@+id/img_cerrar_sesion"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.357"
+        app:srcCompat="@drawable/salida" />
+
+    <TextView
+        android:id="@+id/tv_salir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/rem"
+        android:text="Salir"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintStart_toEndOf="@+id/img_cerrar_sesion"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.416" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -44,6 +44,9 @@ class buscar_cliente : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Por favor, ingrese un DNI", Toast.LENGTH_SHORT).show()
             }
+
+            val intent = Intent(this, datos_socio::class.java)
+            startActivity(intent)
         }
     }
 
