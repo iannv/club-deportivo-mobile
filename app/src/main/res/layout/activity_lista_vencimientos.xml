@@ -9,103 +9,120 @@
 
     <TextView
         android:id="@+id/tv_titulo"
-        android:layout_width="391dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:text="Listado de vencimientos"
         android:textAlignment="center"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_Fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintVertical_bias="0.127" />
 
     <TextView
         android:id="@+id/tv_SocioSubTitulo"
-        android:layout_width="114dp"
-        android:layout_height="36dp"
+        android:layout_width="68dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="48dp"
         android:text="Socios"
-        android:textSize="28sp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="240dp" />
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toStartOf="@+id/tv_Fecha"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_Fecha"
-        android:layout_width="178dp"
-        android:layout_height="36dp"
+        android:layout_width="115dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="48dp"
         android:text="11/11/1111"
-        android:textSize="28sp"
-        tools:layout_editor_absoluteX="201dp"
-        tools:layout_editor_absoluteY="240dp" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight="wrap_content" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="279dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/black"
         android:text="👤         Juan Peres"
         app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="338dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="279dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/black"
         android:text="👤     Roverto Garcia"
         app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="549dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="279dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/black"
         android:text="👤   Carlos Rodriguez"
         app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="407dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="279dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/black"
         android:text="👤  Alberto Munion"
         app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="482dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="279dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="@color/black"
         android:text="👤   Carlos Sanchez"
         app:cornerRadius="0dp"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="616dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/rem"
         android:text="Admin"
         android:textColor="#606060"
         android:textSize="10sp"
-        tools:layout_editor_absoluteX="373dp"
-        tools:layout_editor_absoluteY="62dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_titulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.212" />
 
-    <ImageView
-        android:id="@+id/tv_LogoAdmin"
-        android:layout_width="12dp"
-        android:layout_height="10dp"
-        android:translationY="2dp"
-        app:srcCompat="@drawable/admin"
-        tools:layout_editor_absoluteX="354dp"
-        tools:layout_editor_absoluteY="62dp" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -120,15 +137,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/tv_FlechaRetorno"
-        android:layout_width="38dp"
-        android:layout_height="40dp"
-        android:text="↩"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="50dp" />
+    <ImageView
+        android:id="@+id/imageView_admin"
+        android:layout_width="12dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_admin"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin"
+        app:layout_constraintTop_toTopOf="@+id/tv_admin"
+        app:srcCompat="@drawable/admin" />
 
+    <ImageView
+        android:id="@+id/img_volver_buscar"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_titulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:srcCompat="@drawable/volver" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
