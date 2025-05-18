@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:fontFamily="@font/rem_bold"
-        android:text="DATOS DEL SOCIO"
+        android:text="Datos del socio"
         android:textAlignment="center"
         android:textColor="#212121"
         android:textSize="30sp"
@@ -98,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/rem_bold"
-                android:text="APELLIDO\nY NOMBRE:"
+                android:text="APELLIDO Y NOMBRE:"
                 android:textColor="#212121"
                 android:textSize="14sp" />
 
