@@ -11,6 +11,8 @@ import android.widget.CheckBox
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.viewpager2.widget.ViewPager2
+import androidx.fragment.app.activityViewModels
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,8 +24,10 @@ private const val ARG_PARAM2 = "param2"
  * Use the [registro_datosPersonales.newInstance] factory method to
  * create an instance of this fragment.
  */
+
+
 class registro_datosPersonales : Fragment() {
-    // TODO: Rename and change types of parameters
+    private val viewModel: registroViewModelFragment by activityViewModels()
     private var param1: String? = null
     private var param2: String? = null
 
