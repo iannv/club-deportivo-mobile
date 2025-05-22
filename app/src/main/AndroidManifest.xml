@@ -24,9 +24,6 @@
             android:name=".lista_vencimientos"
             android:exported="false" />
         <activity
-            android:name=".comprobante_pago"
-            android:exported="false" />
-        <activity
             android:name=".cobrar"
             android:exported="false" />
         <activity

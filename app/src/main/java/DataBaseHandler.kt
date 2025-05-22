@@ -1,10 +1,13 @@
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+import android.widget.Toast
 import androidx.core.content.contentValuesOf
 
-class DataBaseHandler(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportibo.db",null, 1) {
+class DataBaseHandler(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportivo.db",null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(CREATE_ROL_TABLE)
         db?.execSQL(CREATE_USUARIO_TABLE)
@@ -62,29 +65,31 @@ class DataBaseHandler(contexto: Context) : SQLiteOpenHelper(contexto, "clubDepor
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    // ****** INSERTAR USUARIO ****** //
-    fun insertarUsuario(usuario: Usuario):String{
-        val p0 = this.writableDatabase
-        var contenedor = ContentValues()
-        contenedor.put("nombre", usuario.nombreUsuario)
-        contenedor.put("clave", usuario.clave)
-        contenedor.put("activo", usuario.activo)
-        contenedor.put("rol", usuario.rol)
 
-        var resultado = p0.insert("usuario ", null, contenedor)
-        if (resultado == -1.toLong()){
-            return "Falló la carga del usuario"
-        } else{
-            return "Carga del usuario exitoso"
+    // ****** REGISTRAR CLIENTE ****** //
+    fun registrarCliente(cliente: Cliente, context: Context){
+        val bd = this.writableDatabase
+        val values = ContentValues()
+        values.put("nombre", cliente.nombre)
+        values.put("apellido", cliente.apellido)
+        values.put("tipoDoc", cliente.tipoDoc)
+        values.put("dni", cliente.dni)
+        values.put("domicilio", cliente.domicilio)
+        values.put("telefono", cliente.telefono)
+        values.put("email", cliente.email)
+        values.put("aptoFisico", cliente.aptoFisico)
+        values.put("socio", cliente.socio)
+        values.put("numeroCarnet", cliente.numeroCarnet)
+
+        val resultado = bd.insert("cliente", null, values)
+        bd.close()
+
+        if (resultado == -1L) {
+            Toast.makeText(context, "Error al registrar cliente", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "Cliente registrado", Toast.LENGTH_SHORT).show()
         }
     }
-
-    // ****** OBTENER USUARIO ****** //
-    fun obtenerUsuarios():ArrayList<Usuario>{return ArrayList()}
-
-    // ****** ACTUALIZAR USUARIO ****** //
-    fun actualizarUsuario(usuario: Usuario):String{return ""}
-
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
