@@ -1,8 +1,10 @@
 package com.example.club_deportivo_mobile
 
+import DataBaseHandler
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -21,6 +23,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Crea la BD si no existe
+        val dbHelper = DataBaseHandler(this)
+        val db = dbHelper.writableDatabase
+        Toast.makeText(this, "Base de datos creada", Toast.LENGTH_SHORT).show()
+
 
         val iniciarSesion = findViewById<Button>(R.id.btn_iniciarSesion)
 
