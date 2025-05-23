@@ -1,13 +1,10 @@
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 import android.widget.Toast
-import androidx.core.content.contentValuesOf
 
-class DataBaseHandler(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportivo.db",null, 1) {
+class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportivo.db",null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(CREATE_ROL_TABLE)
         db?.execSQL(CREATE_USUARIO_TABLE)
@@ -32,7 +29,7 @@ class DataBaseHandler(contexto: Context) : SQLiteOpenHelper(contexto, "clubDepor
         private const val CREATE_ROL_TABLE = "CREATE TABLE rol(id_rol INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT)"
 
         private const val CREATE_USUARIO_TABLE = "CREATE TABLE usuario(id_usuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "nombreUsuario TEXT, " +
+                "nombreUsuario TEXT UNIQUE, " +
                 "clave TEXT, " +
                 "activo BOOL DEFAULT TRUE, " +
                 "rol INTEGER, " +
@@ -65,6 +62,14 @@ class DataBaseHandler(contexto: Context) : SQLiteOpenHelper(contexto, "clubDepor
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // ****** LOGIN ****** //
+    fun login(usuario: String, clave: String): Boolean {
+        val bd = this.readableDatabase
+        val cursor = bd.rawQuery("SELECT * FROM usuario WHERE nombreUsuario = ? AND clave = ?", arrayOf(usuario, clave))
+        var existe = cursor.count > 0
+        return existe
+    }
 
     // ****** REGISTRAR CLIENTE ****** //
     fun registrarCliente(cliente: Cliente, context: Context){

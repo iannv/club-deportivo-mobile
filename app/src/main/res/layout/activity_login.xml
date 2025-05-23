@@ -91,6 +91,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_bienvenido" />
 
+    <TextView
+        android:id="@+id/tv_mensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/rem"
+        android:textColor="#D64646"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_clave" />
+
     <Button
         android:id="@+id/btn_ingresar"
         android:layout_width="300dp"
@@ -106,7 +118,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_clave"
-        app:layout_constraintVertical_bias="0.662"
+        app:layout_constraintVertical_bias="0.612"
         app:strokeColor="#070707" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
