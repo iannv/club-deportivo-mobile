@@ -1,6 +1,6 @@
 package com.example.club_deportivo_mobile
 
-import DataBaseHandler
+import DataBaseHelper
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -25,10 +25,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Crea la BD si no existe
-        val dbHelper = DataBaseHandler(this)
+        val dbHelper = DataBaseHelper(this)
         val db = dbHelper.writableDatabase
-        Toast.makeText(this, "Base de datos creada", Toast.LENGTH_SHORT).show()
-
 
         val iniciarSesion = findViewById<Button>(R.id.btn_iniciarSesion)
 
