@@ -38,7 +38,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         private const val CREATE_CLIENTE_TABLE = "CREATE TABLE cliente(id_cliente INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nombre TEXT, " +
                 "apellido TEXT, " +
-                "tipoDoc TEXT, " +
+                //"tipoDoc TEXT, " +
                 "dni TEXT, " +
                 "domicilio TEXT, " +
                 "telefono TEXT, " +
@@ -72,29 +72,34 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
     }
 
     // ****** REGISTRAR CLIENTE ****** //
-    fun registrarCliente(cliente: Cliente, context: Context){
+    fun registrarCliente(cliente: Cliente, context: Context) {
         val bd = this.writableDatabase
         val values = ContentValues()
         values.put("nombre", cliente.nombre)
         values.put("apellido", cliente.apellido)
-        values.put("tipoDoc", cliente.tipoDoc)
         values.put("dni", cliente.dni)
         values.put("domicilio", cliente.domicilio)
         values.put("telefono", cliente.telefono)
         values.put("email", cliente.email)
         values.put("aptoFisico", cliente.aptoFisico)
         values.put("socio", cliente.socio)
-        values.put("numeroCarnet", cliente.numeroCarnet)
 
         val resultado = bd.insert("cliente", null, values)
-        bd.close()
 
-        if (resultado == -1L) {
-            Toast.makeText(context, "Error al registrar cliente", Toast.LENGTH_SHORT).show()
-        } else {
+        if (resultado != -1L) {
+            val idGenerado = resultado.toInt()
+            val actualizarCarnet = ContentValues()
+            actualizarCarnet.put("numeroCarnet", idGenerado)
+            bd.update("cliente", actualizarCarnet, "id_cliente = ?", arrayOf(idGenerado.toString()))
+
             Toast.makeText(context, "Cliente registrado", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "Error al registrar cliente", Toast.LENGTH_SHORT).show()
         }
+
+        bd.close()
     }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
