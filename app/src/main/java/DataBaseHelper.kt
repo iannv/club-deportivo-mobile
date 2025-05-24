@@ -3,6 +3,9 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportivo.db",null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
@@ -38,13 +41,13 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         private const val CREATE_CLIENTE_TABLE = "CREATE TABLE cliente(id_cliente INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nombre TEXT, " +
                 "apellido TEXT, " +
-                //"tipoDoc TEXT, " +
                 "dni TEXT, " +
                 "domicilio TEXT, " +
                 "telefono TEXT, " +
                 "email TEXT, " +
                 "aptoFisico BOOL, " +
                 "socio BOOL, " +
+                "fechaAlta TEXT, " +
                 "numeroCarnet INTEGER)"
 
         private const val CREATE_ACTIVIDAD_TABLE = "CREATE TABLE actividad(id_actividad INTEGER PRIMARY KEY, " +
@@ -75,6 +78,11 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
     fun registrarCliente(cliente: Cliente, context: Context) {
         val bd = this.writableDatabase
         val values = ContentValues()
+
+        val calendar = Calendar.getInstance()
+        val formatoFecha = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val fechaAlta = formatoFecha.format(calendar.time)
+
         values.put("nombre", cliente.nombre)
         values.put("apellido", cliente.apellido)
         values.put("dni", cliente.dni)
@@ -83,6 +91,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         values.put("email", cliente.email)
         values.put("aptoFisico", cliente.aptoFisico)
         values.put("socio", cliente.socio)
+        values.put("fechaAlta", fechaAlta)
 
         val resultado = bd.insert("cliente", null, values)
 
@@ -99,6 +108,8 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
         bd.close()
     }
+
+
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
