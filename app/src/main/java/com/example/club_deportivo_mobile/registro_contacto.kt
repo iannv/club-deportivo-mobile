@@ -75,6 +75,7 @@ class registro_contacto : Fragment() {
                 dbHelper.registrarCliente(cliente, requireContext())
 
                 val intent = Intent(requireContext(), carnet::class.java)
+                intent.putExtra("dni", cliente.dni)
                 startActivity(intent)
             }
         }

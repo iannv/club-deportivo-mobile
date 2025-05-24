@@ -100,7 +100,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="#599A9A9A"
+                android:background="#FFC107"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -129,12 +129,11 @@
 
                     <ImageView
                         android:id="@+id/img_carnet"
-                        android:layout_width="191dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        app:srcCompat="@android:drawable/ic_menu_gallery"
-                        tools:srcCompat="@drawable/ic_launcher_foreground" />
+                        app:srcCompat="@drawable/avatar" />
 
                     <TableLayout
                         android:layout_width="match_parent"
@@ -145,119 +144,158 @@
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:gravity="start">
+                            android:gravity="left">
 
-                            <TextView
-                                android:id="@+id/tv_nombre"
-                                android:layout_width="163dp"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/rem_bold"
-                                android:text="Nombre"
-                                android:textColor="#212121"
-                                android:textSize="14sp" />
+                                android:layout_gravity="left"
+                                android:gravity="start|left"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/tv_nombreA"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/rem"
-                                android:text="____________________"
-                                android:textColor="#727171"
-                                android:textSize="14sp" />
-                        </TableRow>
+                                <TextView
+                                    android:id="@+id/tv_nombre"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/rem_bold"
+                                    android:text="Nombre"
+                                    android:textColor="#212121"
+                                    android:textSize="14sp" />
 
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/tv_apellido"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/rem_bold"
-                                android:text="Apellido"
-                                android:textColor="#212121"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/tv_apellidoA"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="@font/rem"
-                                android:text="____________________"
-                                android:textColor="#727171"
-                                android:textSize="14sp" />
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/tv_dni"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/rem_bold"
-                                android:text="DNI"
-                                android:textColor="#212121"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/tv_dniA"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="@font/rem"
-                                android:text="____________________"
-                                android:textColor="#727171"
-                                android:textSize="14sp" />
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:id="@+id/tv_fecha_alta"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/rem_bold"
-                                android:text="Fecha alta"
-                                android:textColor="#212121"
-                                android:textSize="14sp" />
-
-                            <TextView
-                                android:id="@+id/tv_fecha_altaA"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="@font/rem"
-                                android:text="____________________"
-                                android:textColor="#727171"
-                                android:textSize="14sp" />
+                                <TextView
+                                    android:id="@+id/tv_nombreA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="5dp"
+                                    android:fontFamily="@font/rem"
+                                    android:gravity="left"
+                                    android:textColor="#727171"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
                         </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:gravity="start|left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_apellido"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/rem_bold"
+                                    android:text="Apellido"
+                                    android:textColor="#212121"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_apellidoA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/rem"
+                                    android:gravity="left"
+                                    android:textColor="#727171"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:gravity="start|left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_dni"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/rem_bold"
+                                    android:text="DNI"
+                                    android:textColor="#212121"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_dniA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/rem"
+                                    android:gravity="left"
+                                    android:textColor="#727171"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:gravity="start|left"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tv_fecha_alta"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/rem_bold"
+                                    android:text="Fecha alta"
+                                    android:textColor="#212121"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_fecha_altaA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:fontFamily="@font/rem"
+                                    android:gravity="left"
+                                    android:textColor="#727171"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
                             android:layout_height="35dp"
                             android:layout_marginTop="20dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="left"
                                 android:orientation="horizontal">
 
                                 <TextView
@@ -271,7 +309,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_numeroA"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="56dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:fontFamily="@font/rem_bold"
@@ -280,7 +318,7 @@
 
                                 <TextView
                                     android:id="@+id/tv_socio_nosocio"
-                                    android:layout_width="54dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/rem_bold"
                                     android:text="SOCIO"

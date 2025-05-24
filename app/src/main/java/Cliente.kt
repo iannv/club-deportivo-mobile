@@ -8,5 +8,6 @@ data class Cliente (
     val email : String,
     val aptoFisico : Boolean,
     val socio : Boolean,
-    val numeroCarnet : Int? = 0
+    val numeroCarnet : Int? = 0,
+    val fechaAlta : String? = null
 )
