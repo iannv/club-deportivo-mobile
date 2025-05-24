@@ -1,5 +1,7 @@
 package com.example.club_deportivo_mobile
 
+import Cliente
+import DataBaseHelper
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,20 +11,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.activityViewModels
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [registro_contacto.newInstance] factory method to
- * create an instance of this fragment.
- */
 class registro_contacto : Fragment() {
-    // TODO: Rename and change types of parameters
+    private val viewModel: registroViewModelFragment by activityViewModels()
     private var param1: String? = null
     private var param2: String? = null
 
@@ -46,11 +43,40 @@ class registro_contacto : Fragment() {
         var email = view.findViewById<TextView>(R.id.et_email)
         var tel = view.findViewById<TextView>(R.id.et_tel)
         var domicilio = view.findViewById<TextView>(R.id.et_domicilio)
+        var mensaje = view.findViewById<TextView>(R.id.mjeContacto)
+
+        email.requestFocus()
 
         // Registrar cliente
         btnRegistrar.setOnClickListener {
-            val intent = Intent(requireContext(), carnet::class.java)
-            startActivity(intent)
+            val cliente = Cliente(
+                nombre = viewModel.nombre.value ?:"",
+                apellido = viewModel.apellido.value ?:"",
+                dni = viewModel.numero.value ?:"",
+                aptoFisico = viewModel.esApto.value ?:false,
+                socio = viewModel.esSocio.value ?:false,
+                email = email.text.toString(),
+                telefono = tel.text.toString(),
+                domicilio = domicilio.text.toString(),
+            )
+
+            if (cliente.nombre.isEmpty() ||
+                cliente.apellido.isEmpty() ||
+                cliente.dni.isEmpty() ||
+                cliente.domicilio.isEmpty() ||
+                cliente.telefono.isEmpty() ||
+                cliente.email.isEmpty()) {
+                mensaje.setText("Los campos (*) son obligatorios")
+
+            } else {
+                mensaje.setText("")
+
+                val dbHelper = DataBaseHelper(requireContext())
+                dbHelper.registrarCliente(cliente, requireContext())
+
+                val intent = Intent(requireContext(), carnet::class.java)
+                startActivity(intent)
+            }
         }
 
         // Limpiar campos

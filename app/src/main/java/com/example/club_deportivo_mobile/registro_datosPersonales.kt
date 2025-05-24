@@ -10,21 +10,13 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import androidx.fragment.app.activityViewModels
+import org.w3c.dom.Text
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [registro_datosPersonales.newInstance] factory method to
- * create an instance of this fragment.
- */
-
 
 class registro_datosPersonales : Fragment() {
     private val viewModel: registroViewModelFragment by activityViewModels()
@@ -51,21 +43,36 @@ class registro_datosPersonales : Fragment() {
 
         var nombre = view.findViewById<TextView>(R.id.et_nombre)
         var apellido = view.findViewById<TextView>(R.id.et_apellido)
-        var tipo = view.findViewById<Spinner>(R.id.spinner_tipo)
         var numero = view.findViewById<TextView>(R.id.et_numero)
         var esApto = view.findViewById<CheckBox>(R.id.chk_apto)
         var esSocio = view.findViewById<CheckBox>(R.id.chk_socio)
+        var mensaje = view.findViewById<TextView>(R.id.mjeContacto2)
+
+        nombre.requestFocus()
 
         btnContinuar.setOnClickListener {
-            val viewpager = requireActivity().findViewById<ViewPager2>(R.id.viewPager2)
-            viewpager.currentItem = 1
+
+            if(nombre.text.isEmpty() || apellido.text.isEmpty() || numero.text.isEmpty()){
+                mensaje.setText("Los campos (*) son obligatorios")
+            } else{
+                // Capturar datos de los campos y guardarlos en el ViewModel
+                viewModel.nombre.value = nombre.text.toString()
+                viewModel.apellido.value = apellido.text.toString()
+                viewModel.numero.value = numero.text.toString()
+                viewModel.esApto.value = esApto.isChecked
+                viewModel.esSocio.value = esSocio.isChecked
+
+                mensaje.setText("")
+
+                val viewpager = requireActivity().findViewById<ViewPager2>(R.id.viewPager2)
+                viewpager.currentItem = 1
+            }
         }
 
         // Limpiar campos
         limpiar.setOnClickListener {
             nombre.setText("")
             apellido.setText("")
-            tipo.setSelection(0)
             numero.setText("")
             esApto.isChecked = false
             esSocio.isChecked = false
@@ -76,16 +83,8 @@ class registro_datosPersonales : Fragment() {
         return view
     }
 
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment registro_datosPersonales.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             registro_datosPersonales().apply {
