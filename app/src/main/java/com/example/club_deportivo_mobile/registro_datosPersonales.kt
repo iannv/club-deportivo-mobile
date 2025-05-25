@@ -1,5 +1,6 @@
 package com.example.club_deportivo_mobile
 
+import Cliente
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -43,7 +44,7 @@ class registro_datosPersonales : Fragment() {
 
         var nombre = view.findViewById<TextView>(R.id.et_nombre)
         var apellido = view.findViewById<TextView>(R.id.et_apellido)
-        var numero = view.findViewById<TextView>(R.id.et_numero)
+        var dni = view.findViewById<TextView>(R.id.et_numero)
         var esApto = view.findViewById<CheckBox>(R.id.chk_apto)
         var esSocio = view.findViewById<CheckBox>(R.id.chk_socio)
         var mensaje = view.findViewById<TextView>(R.id.mjeContacto2)
@@ -51,14 +52,23 @@ class registro_datosPersonales : Fragment() {
         nombre.requestFocus()
 
         btnContinuar.setOnClickListener {
-
-            if(nombre.text.isEmpty() || apellido.text.isEmpty() || numero.text.isEmpty()){
+            if(nombre.text.isEmpty() || apellido.text.isEmpty() || dni.text.isEmpty()){
                 mensaje.setText("Los campos (*) son obligatorios")
-            } else{
+
+            } else if (dni.text.length != 8){
+                mensaje.setText("El DNI ingresado no es válido")
+
+            } else if (!validarSoloString(nombre.text.toString())){
+                mensaje.setText("El nombre no puede contener números")
+
+            } else if (!validarSoloString(apellido.text.toString())) {
+                mensaje.setText("El apellido no puede contener números")
+
+            } else {
                 // Capturar datos de los campos y guardarlos en el ViewModel
                 viewModel.nombre.value = nombre.text.toString()
                 viewModel.apellido.value = apellido.text.toString()
-                viewModel.numero.value = numero.text.toString()
+                viewModel.numero.value = dni.text.toString()
                 viewModel.esApto.value = esApto.isChecked
                 viewModel.esSocio.value = esSocio.isChecked
 
@@ -73,14 +83,23 @@ class registro_datosPersonales : Fragment() {
         limpiar.setOnClickListener {
             nombre.setText("")
             apellido.setText("")
-            numero.setText("")
+            dni.setText("")
             esApto.isChecked = false
             esSocio.isChecked = false
 
             nombre.requestFocus()
         }
-
         return view
+    }
+
+
+    // Validar si la palabra solo contiene letras
+    fun validarSoloString(palabra : String): Boolean {
+        if (palabra.chars().allMatch { Character.isLetter(it) }){
+            return true
+        } else {
+            return false
+        }
     }
 
 
