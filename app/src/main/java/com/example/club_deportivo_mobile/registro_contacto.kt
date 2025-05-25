@@ -5,6 +5,7 @@ import DataBaseHelper
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -68,6 +69,9 @@ class registro_contacto : Fragment() {
                 cliente.email.isEmpty()) {
                 mensaje.setText("Los campos (*) son obligatorios")
 
+            } else if (!validarEmail(cliente.email)) {
+                mensaje.setText("El email ingresado no es válido")
+
             } else {
                 mensaje.setText("")
 
@@ -80,6 +84,7 @@ class registro_contacto : Fragment() {
             }
         }
 
+
         // Limpiar campos
         limpiar.setOnClickListener {
             email.setText("")
@@ -88,22 +93,20 @@ class registro_contacto : Fragment() {
 
             email.requestFocus()
         }
-
         return view
     }
 
 
 
+    // Validar si el email tiene dominio correcto
+    fun validarEmail(email: String): Boolean {
+        val dominiosPermitidos = listOf("@gmail.com", "@hotmail.com", "@outlook.com", "@yahoo.com", "@icloud.com", "@live.com")
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches() && dominiosPermitidos.any { email.lowercase().endsWith(it) }
+    }
+
+
+
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment registro_contacto.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             registro_contacto().apply {
