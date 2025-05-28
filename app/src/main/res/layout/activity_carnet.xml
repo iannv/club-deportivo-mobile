@@ -93,6 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_imprimir">
 
         <LinearLayout
+            android:id="@+id/layoutCarnet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
