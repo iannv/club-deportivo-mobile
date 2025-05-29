@@ -60,7 +60,7 @@
 
     <Button
         android:id="@+id/btn_registrar_cliente"
-        android:layout_width="350sp"
+        android:layout_width="300sp"
         android:layout_height="56sp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#212121"
@@ -76,7 +76,7 @@
 
     <Button
         android:id="@+id/btn_buscar_cliente"
-        android:layout_width="350sp"
+        android:layout_width="300sp"
         android:layout_height="56sp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
@@ -92,7 +92,7 @@
 
     <Button
         android:id="@+id/btn_cobrar"
-        android:layout_width="350sp"
+        android:layout_width="300sp"
         android:layout_height="56sp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
@@ -108,7 +108,7 @@
 
     <Button
         android:id="@+id/btn_actividades_socio"
-        android:layout_width="350sp"
+        android:layout_width="300sp"
         android:layout_height="56sp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
@@ -124,7 +124,7 @@
 
     <Button
         android:id="@+id/btn_vtos"
-        android:layout_width="350sp"
+        android:layout_width="300sp"
         android:layout_height="56sp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#212121"
