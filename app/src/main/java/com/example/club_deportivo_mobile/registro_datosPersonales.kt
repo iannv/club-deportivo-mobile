@@ -1,6 +1,7 @@
 package com.example.club_deportivo_mobile
 
 import Cliente
+import DataBaseHelper
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import androidx.fragment.app.activityViewModels
 import org.w3c.dom.Text
+import kotlin.math.truncate
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -52,32 +54,43 @@ class registro_datosPersonales : Fragment() {
         nombre.requestFocus()
 
         btnContinuar.setOnClickListener {
-            if(nombre.text.isEmpty() || apellido.text.isEmpty() || dni.text.isEmpty()){
-                mensaje.setText("Los campos (*) son obligatorios")
+            val dbHelper = DataBaseHelper(requireContext())
 
-            } else if (dni.text.length != 8){
-                mensaje.setText("El DNI ingresado no es válido")
+            // Si el DNI ya se encuentra registrado se muestra el cuadro de diálogo
+            if (dbHelper.validarDniExistente(dni.text.toString())){
+                showDialog()
+            }
 
-            } else if (!validarSoloString(nombre.text.toString())){
-                mensaje.setText("El nombre no puede contener números")
+            // Si el DNI no está registrado se registra al cliente
+            else {
+                if(nombre.text.isEmpty() || apellido.text.isEmpty() || dni.text.isEmpty()){
+                    mensaje.setText("Los campos (*) son obligatorios")
 
-            } else if (!validarSoloString(apellido.text.toString())) {
-                mensaje.setText("El apellido no puede contener números")
+                } else if (dni.text.length != 8){
+                    mensaje.setText("El DNI ingresado no es válido")
 
-            } else {
-                // Capturar datos de los campos y guardarlos en el ViewModel
-                viewModel.nombre.value = nombre.text.toString()
-                viewModel.apellido.value = apellido.text.toString()
-                viewModel.numero.value = dni.text.toString()
-                viewModel.esApto.value = esApto.isChecked
-                viewModel.esSocio.value = esSocio.isChecked
+                } else if (!validarSoloString(nombre.text.toString())){
+                    mensaje.setText("El nombre no puede contener números")
 
-                mensaje.setText("")
+                } else if (!validarSoloString(apellido.text.toString())) {
+                    mensaje.setText("El apellido no puede contener números")
 
-                val viewpager = requireActivity().findViewById<ViewPager2>(R.id.viewPager2)
-                viewpager.currentItem = 1
+                } else {
+                    // Capturar datos de los campos y guardarlos en el ViewModel
+                    viewModel.nombre.value = nombre.text.toString()
+                    viewModel.apellido.value = apellido.text.toString()
+                    viewModel.numero.value = dni.text.toString()
+                    viewModel.esApto.value = esApto.isChecked
+                    viewModel.esSocio.value = esSocio.isChecked
+
+                    mensaje.setText("")
+
+                    val viewpager = requireActivity().findViewById<ViewPager2>(R.id.viewPager2)
+                    viewpager.currentItem = 1
+                }
             }
         }
+
 
         // Limpiar campos
         limpiar.setOnClickListener {
@@ -94,13 +107,21 @@ class registro_datosPersonales : Fragment() {
 
 
     // Validar si la palabra solo contiene letras
-    fun validarSoloString(palabra : String): Boolean {
-        if (palabra.chars().allMatch { Character.isLetter(it) }){
-            return true
-        } else {
-            return false
-        }
+    fun validarSoloString(palabra: String): Boolean {
+        return palabra.all { it.isLetter() || it == ' ' }
     }
+
+
+
+    // Mostrar cuadro de diálogo si el DNI ya se encuentra registrado
+    private fun showDialog() {
+        val dialog = android.app.AlertDialog.Builder(context)
+        .setTitle("El DNI ya se encuentra registrado")
+        .setPositiveButton("ACEPTAR", null)
+        .create()
+        dialog.show()
+    }
+
 
 
     companion object {
