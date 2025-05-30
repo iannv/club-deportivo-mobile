@@ -42,7 +42,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         private const val CREATE_CLIENTE_TABLE = "CREATE TABLE cliente(id_cliente INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "nombre TEXT, " +
                 "apellido TEXT, " +
-                "dni TEXT, " +
+                "dni TEXT UNIQUE, " +
                 "domicilio TEXT, " +
                 "telefono TEXT, " +
                 "email TEXT, " +
@@ -72,6 +72,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         val bd = this.readableDatabase
         val cursor = bd.rawQuery("SELECT * FROM usuario WHERE nombreUsuario = ? AND clave = ?", arrayOf(usuario, clave))
         var existe = cursor.count > 0
+        cursor.close()
         return existe
     }
 
@@ -102,12 +103,20 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
             actualizarCarnet.put("numeroCarnet", idGenerado)
             bd.update("cliente", actualizarCarnet, "id_cliente = ?", arrayOf(idGenerado.toString()))
 
-            Toast.makeText(context, "Cliente registrado", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(context, "Error al registrar cliente", Toast.LENGTH_SHORT).show()
         }
 
         bd.close()
+    }
+
+    // Valida si un cliente existe por el DNI antes de registrarlo nuevamente
+    fun validarDniExistente(dni: String) : Boolean {
+        val bd = this.readableDatabase
+        val cursor = bd.rawQuery("SELECT * FROM cliente WHERE dni = ?", arrayOf(dni))
+        var existe = cursor.count > 0
+        cursor.close()
+        return existe
     }
 
 
@@ -116,3 +125,6 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
+
+
+
