@@ -67,6 +67,20 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // ****** REGISTRO DE NEUVO USUARIO ****** //
+    fun registrarUsuario(usuario: Usuario, contexto: Context) {
+        val bd = this.writableDatabase
+        val values = ContentValues()
+
+        values.put("nombreUsuario", usuario.nombreUsuario)
+        values.put("clave", usuario.clave)
+        values.put("activo", usuario.activo)
+        values.put("rol", usuario.rol)
+
+        bd.insert("usuario", null, values)
+        bd.close()
+    }
+
     // ****** LOGIN ****** //
     fun login(usuario: String, clave: String): Boolean {
         val bd = this.readableDatabase
@@ -124,6 +138,52 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    // Buscar cliente por DNI
+    fun buscarClientePorDni(dni: String): Cliente? {
+        val bd = this.readableDatabase
+        val cursor = bd.rawQuery("SELECT * FROM cliente WHERE dni = ?", arrayOf(dni))
+
+        var cliente: Cliente? = null
+
+        if (cursor.moveToFirst()) {
+            cliente = Cliente(
+                id_cliente = cursor.getInt(cursor.getColumnIndexOrThrow("id_cliente")),
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido")),
+                dni = cursor.getString(cursor.getColumnIndexOrThrow("dni")),
+                domicilio = cursor.getString(cursor.getColumnIndexOrThrow("domicilio")),
+                telefono = cursor.getString(cursor.getColumnIndexOrThrow("telefono")),
+                email = cursor.getString(cursor.getColumnIndexOrThrow("email")),
+                aptoFisico = cursor.getInt(cursor.getColumnIndexOrThrow("aptoFisico")) == 1,
+                socio = cursor.getInt(cursor.getColumnIndexOrThrow("socio")) == 1,
+                numeroCarnet = cursor.getInt(cursor.getColumnIndexOrThrow("numeroCarnet")),
+                fechaAlta = cursor.getString(cursor.getColumnIndexOrThrow("fechaAlta"))
+            )
+        }
+
+        cursor.close()
+        bd.close()
+        return cliente
+    }
+
+    // Obtener la cuota más reciente de un cliente
+    fun obtenerUltimaCuota(idCliente: Int): Float? {
+        val bd = this.readableDatabase
+        val cursor = bd.rawQuery(
+            "SELECT monto FROM cuota WHERE id_cliente = ? ORDER BY fechaPago DESC LIMIT 1",
+            arrayOf(idCliente.toString())
+        )
+
+        var monto: Float? = null
+        if (cursor.moveToFirst()) {
+            monto = cursor.getFloat(cursor.getColumnIndexOrThrow("monto"))
+        }
+
+        cursor.close()
+        bd.close()
+        return monto
+    }
 }
 
 
