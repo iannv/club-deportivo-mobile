@@ -67,6 +67,20 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
+    // ****** REGISTRO DE NEUVO USUARIO ****** //
+    fun registrarUsuario(usuario: Usuario, contexto: Context) {
+        val bd = this.writableDatabase
+        val values = ContentValues()
+
+        values.put("nombreUsuario", usuario.nombreUsuario)
+        values.put("clave", usuario.clave)
+        values.put("activo", usuario.activo)
+        values.put("rol", usuario.rol)
+
+        bd.insert("usuario", null, values)
+        bd.close()
+    }
+
     // ****** LOGIN ****** //
     fun login(usuario: String, clave: String): Boolean {
         val bd = this.readableDatabase
