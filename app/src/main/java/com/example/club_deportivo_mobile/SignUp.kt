@@ -1,43 +1,45 @@
 package com.example.club_deportivo_mobile
 
 import DataBaseHelper
+import Usuario
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sign_up)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Crea la BD si no existe
         val dbHelper = DataBaseHelper(this)
-        val db = dbHelper.writableDatabase
 
-        val iniciarSesion = findViewById<Button>(R.id.btn_iniciarSesion)
-        val registrarse = findViewById<Button>(R.id.btnRegistrarse)
+        var usuario = findViewById<EditText>(R.id.et_usuarioRegistro)
+        var clave = findViewById<EditText>(R.id.et_claveRegistro)
+        var btnRegistrarse = findViewById<Button>(R.id.btn_registrarme)
 
-        iniciarSesion.setOnClickListener {
+        btnRegistrarse.setOnClickListener {
+            val nuevoUsuario = usuario.text.toString()
+            val nuevaClave = clave.text.toString()
+
+            val usuarioRegistrado = Usuario(null, nuevoUsuario, nuevaClave, true, 1)
+            dbHelper.registrarUsuario(usuarioRegistrado, this)
+
+            Toast.makeText(this, "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show()
             var intent = Intent(this, login::class.java)
-            startActivity(intent)
-        }
-
-        registrarse.setOnClickListener {
-            var intent = Intent(this, SignUp::class.java)
             startActivity(intent)
         }
 
