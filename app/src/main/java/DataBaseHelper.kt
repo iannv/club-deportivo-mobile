@@ -1,8 +1,10 @@
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import dto.ClienteDTO
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -184,6 +186,33 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         bd.close()
         return monto
     }
+
+
+    fun listadoDeVencimientos(fecha:String):List<ClienteDTO> {
+        val db: SQLiteDatabase = readableDatabase
+        val sql: String = "SELECT id_cliente,nombre,apellido,numeroCarnet " +
+                "FROM cliente AS c INNER JOIN cuota AS k ON c.id_cliente = k.id_cliente" +
+                "WHERE  fechaVto = " + fecha;
+        val cursor: Cursor = db.rawQuery(sql, null);
+
+        var lista: MutableList<ClienteDTO> = mutableListOf()
+
+        while (cursor.moveToNext()) {
+            var cliente: ClienteDTO? = null
+
+            cliente = ClienteDTO(
+                id_cliente = cursor.getInt(cursor.getColumnIndexOrThrow("id_cliente")),
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido")),
+                numeroCarnet = cursor.getInt(cursor.getColumnIndexOrThrow("numeroCarnet"))
+            )
+            lista.add(cliente)
+        }
+        cursor.close()
+        db.close()
+        return lista
+    }
+
 }
 
 
