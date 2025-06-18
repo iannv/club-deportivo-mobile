@@ -190,9 +190,9 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
     fun listadoDeVencimientos(fecha:String):List<ClienteDTO> {
         val db: SQLiteDatabase = readableDatabase
-        val sql: String = "SELECT id_cliente,nombre,apellido,numeroCarnet " +
-                "FROM cliente AS c INNER JOIN cuota AS k ON c.id_cliente = k.id_cliente" +
-                "WHERE  fechaVto = " + fecha;
+        val sql: String = "SELECT c.id_cliente,c.nombre,c.apellido,c.numeroCarnet " +
+                "FROM cliente AS c INNER JOIN cuota AS k ON c.id_cliente = k.id_cliente ";
+
         val cursor: Cursor = db.rawQuery(sql, null);
 
         var lista: MutableList<ClienteDTO> = mutableListOf()
@@ -214,6 +214,10 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
     }
 
 }
+
+
+
+
 
 
 
