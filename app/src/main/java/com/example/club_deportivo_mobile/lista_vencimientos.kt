@@ -29,39 +29,12 @@ class lista_vencimientos : AppCompatActivity() {
         val fechaAlta = formatoFecha.format(calendar.time)
         hoy.text = fechaAlta
 
-        val gridLayoutResultado: GridLayout = findViewById(R.id.grid)
+
         val db = DataBaseHelper(this)
         var clientes = db.listadoDeVencimientos(fechaAlta)
 
-        for(cliente in clientes){
-            val textViewPropiedad1 = TextView(this).apply {
-                text = cliente.id_cliente.toString()
-            }
-            val textViewPropiedad2 = TextView( this).apply {
-                text = cliente.nombre
-            }
-            val textViewPropiedad3 = TextView(this).apply {
-                text = cliente.apellido
-            }
-            val textViewPropiedad4 = TextView( this).apply {
-                text = cliente.numeroCarnet.toString()
-            }
 
-            val params = GridLayout.LayoutParams()
-            params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED,  1f)
-
-
-            textViewPropiedad1.layoutParams = params
-            textViewPropiedad2.layoutParams = params
-            textViewPropiedad3.layoutParams = params
-            textViewPropiedad4.layoutParams = params
-            gridLayoutResultado.addView(textViewPropiedad1)
-            gridLayoutResultado.addView(textViewPropiedad2)
-            gridLayoutResultado.addView(textViewPropiedad3)
-            gridLayoutResultado.addView(textViewPropiedad4)
-
-
-        }
+        
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
