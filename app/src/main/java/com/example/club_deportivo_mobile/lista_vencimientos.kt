@@ -3,6 +3,8 @@ package com.example.club_deportivo_mobile
 import DataBaseHelper
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.ListView
@@ -37,27 +39,31 @@ class lista_vencimientos : AppCompatActivity() {
         var clientes = db.listadoDeVencimientos(fechaAlta)
 
         var listaClientesString: MutableList<String> = mutableListOf()
-        listaClientesString.add("Socio Nombre Apellido")
 
         for (c in clientes){
-            var completo = c.numeroCarnet.toString() + " " + c.nombre + " " + c.apellido
+            var completo =  c.nombre + " " + c.apellido
             listaClientesString.add(completo)
 
         }
 
-        val adapter = ArrayAdapter(
+        val adapter = object : ArrayAdapter<String>(
             this,
             android.R.layout.simple_list_item_1,
             listaClientesString
-        )
-
-
+        ) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                val textView = view.findViewById<TextView>(android.R.id.text1)
+                textView.textSize = 25f
+                return view
+            }
+        }
         listView.adapter = adapter
 
 
 
 
-        
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
