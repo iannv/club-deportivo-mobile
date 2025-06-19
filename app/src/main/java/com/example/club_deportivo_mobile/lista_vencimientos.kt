@@ -3,13 +3,16 @@ package com.example.club_deportivo_mobile
 import DataBaseHelper
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.ImageView
+import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.gridlayout.widget.GridLayout
+import dto.ClienteDTO
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -29,9 +32,29 @@ class lista_vencimientos : AppCompatActivity() {
         val fechaAlta = formatoFecha.format(calendar.time)
         hoy.text = fechaAlta
 
-
+        val listView = findViewById<ListView>(R.id.listadoSocios)
         val db = DataBaseHelper(this)
         var clientes = db.listadoDeVencimientos(fechaAlta)
+
+        var listaClientesString: MutableList<String> = mutableListOf()
+        listaClientesString.add("Socio Nombre Apellido")
+
+        for (c in clientes){
+            var completo = c.numeroCarnet.toString() + " " + c.nombre + " " + c.apellido
+            listaClientesString.add(completo)
+
+        }
+
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            listaClientesString
+        )
+
+
+        listView.adapter = adapter
+
+
 
 
         
