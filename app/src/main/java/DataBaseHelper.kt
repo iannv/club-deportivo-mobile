@@ -388,6 +388,14 @@ fun obtenerResumenActividadesPorCliente(): List<ClienteConActividades> {
     return clientesConActividades
 }
 
+    fun cobrarCuota(valores:ContentValues){
+
+        println("Estoy en cobrar cuota")
+        val bd = this.writableDatabase
+        bd.insert("cuota",null, valores)
+        bd.close()
+    }
+
 }
 
 
