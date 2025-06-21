@@ -58,7 +58,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/rem_bold"
-        android:text="Lista de actividades de cada socio"
+        android:text="Actividades cobradas por cliente"
         android:textColor="#212121"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +73,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_lista_actividades">
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="8dp"
+            android:padding="12dp"
             android:gravity="center_vertical">
 
             <ImageView
@@ -91,18 +91,33 @@
                 android:src="@android:drawable/ic_menu_search"
                 android:layout_marginEnd="8dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/et_buscar_dni"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="BUSCAR"
+                android:layout_weight="1"
+                android:hint="Ingrese DNI del cliente"
                 android:fontFamily="@font/rem"
-                android:textSize="16sp"/>
+                android:textSize="14sp"
+                android:background="@android:color/transparent"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/btn_buscar_actividades"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="BUSCAR"
+                android:fontFamily="@font/rem_medium"
+                android:textSize="12sp"
+                android:backgroundTint="#212121"
+                android:layout_marginStart="8dp"/>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
     <ScrollView
+        android:id="@+id/scroll_actividades"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -112,180 +127,24 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView_buscar">
 
         <LinearLayout
+            android:id="@+id/container_actividades"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="24dp">
 
             <TextView
-                android:id="@+id/tv_nombre_socio1"
+                android:id="@+id/tv_mensaje_actividades"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="24dp"
-                android:fontFamily="@font/rem_bold"
-                android:text="RODRIGUEZ, KEVIN"
-                android:textColor="#212121"
+                android:fontFamily="@font/rem"
+                android:text="Ingrese un DNI para buscar las actividades del cliente"
+                android:textAlignment="center"
+                android:textColor="#606060"
                 android:textSize="16sp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView_socio1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="0dp"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rem_bold"
-                            android:text="DNI: "
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_dni_socio1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/rem"
-                            android:text="42094572"
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rem_bold"
-                            android:text="N°SOCIO: "
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_numero_socio1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rem"
-                            android:text="400"
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tv_actividades_socio1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/rem"
-                        android:lineSpacingExtra="4dp"
-                        android:text="• TENIS\n• BALONCESTO\n• ATLETISMO"
-                        android:textColor="#212121"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/tv_nombre_socio2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                android:fontFamily="@font/rem_bold"
-                android:text="MORENO, ANIBAL"
-                android:textColor="#212121"
-                android:textSize="16sp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView_socio2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="24dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="0dp"
-                app:cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rem_bold"
-                            android:text="DNI: "
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_dni_socio2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/rem"
-                            android:text="41562311"
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rem_bold"
-                            android:text="N°SOCIO: "
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tv_numero_socio2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/rem"
-                            android:text="300"
-                            android:textColor="#212121"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tv_actividades_socio2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/rem"
-                        android:gravity="center"
-                        android:text="NO HAY ACTIVIDADES\nPARA MOSTRAR"
-                        android:textColor="#212121"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 

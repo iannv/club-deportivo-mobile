@@ -10,24 +10,29 @@ import java.util.TimeZone
 
 class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportivo.db",null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
-        db?.execSQL(CREATE_ROL_TABLE)
-        db?.execSQL(CREATE_USUARIO_TABLE)
-        db?.execSQL(CREATE_CLIENTE_TABLE)
-        db?.execSQL(CREATE_ACTIVIDAD_TABLE)
-        db?.execSQL(CREATE_CUOTA_TABLE)
 
-        db?.execSQL("INSERT INTO rol(nombre) VALUES('administrador')")
-        db?.execSQL("INSERT INTO usuario(nombreUsuario, clave, activo, rol) VALUES('admin', '123', 1, 1)")
-    }
+       
+
+    db?.execSQL(CREATE_ROL_TABLE)
+    db?.execSQL(CREATE_USUARIO_TABLE)
+    db?.execSQL(CREATE_CLIENTE_TABLE)
+    db?.execSQL(CREATE_ACTIVIDAD_TABLE)
+    db?.execSQL(CREATE_CUOTA_TABLE)
+    db?.execSQL(CREATE_ACTIVIDAD_COBRADA_TABLE) // Nueva línea
+
+    db?.execSQL("INSERT INTO rol(nombre) VALUES('administrador')")
+    db?.execSQL("INSERT INTO usuario(nombreUsuario, clave, activo, rol) VALUES('admin', '123', 1, 1)")
+}
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db?.execSQL("DROP TABLE IF EXISTS rol")
-        db?.execSQL("DROP TABLE IF EXISTS usuario")
-        db?.execSQL("DROP TABLE IF EXISTS cliente")
-        db?.execSQL("DROP TABLE IF EXISTS actividad")
-        db?.execSQL("DROP TABLE IF EXISTS cuota")
-        onCreate(db)
-    }
+    db?.execSQL("DROP TABLE IF EXISTS rol")
+    db?.execSQL("DROP TABLE IF EXISTS usuario")
+    db?.execSQL("DROP TABLE IF EXISTS cliente")
+    db?.execSQL("DROP TABLE IF EXISTS actividad")
+    db?.execSQL("DROP TABLE IF EXISTS cuota")
+    db?.execSQL("DROP TABLE IF EXISTS actividad_cobrada") // Nueva línea
+    onCreate(db)
+}
 
     companion object{
         private const val CREATE_ROL_TABLE = "CREATE TABLE rol(id_rol INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT)"
@@ -53,7 +58,6 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
         private const val CREATE_ACTIVIDAD_TABLE = "CREATE TABLE actividad(id_actividad INTEGER PRIMARY KEY, " +
                 "nombre TEXT, " +
-                "cupo INTEGER, " +
                 "precio FLOAT)"
 
         private const val CREATE_CUOTA_TABLE = "CREATE TABLE cuota(id_cuota INTEGER PRIMARY KEY, " +
@@ -62,6 +66,15 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
                 "fechaPago TEXT, " +
                 "fechaVto TEXT, " +
                 "FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente))"
+
+        private const val CREATE_ACTIVIDAD_COBRADA_TABLE = "CREATE TABLE actividad_cobrada(" +
+            "id_actividad_cobrada INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            "nombre_actividad TEXT, " +
+            "nombre_cliente TEXT, " +
+            "apellido_cliente TEXT, " +
+            "dni_cliente TEXT, " +
+            "costo REAL, " +
+            "fecha TEXT)"
     }
 
 
@@ -184,6 +197,167 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         bd.close()
         return monto
     }
+
+    // actividades
+
+    fun registrarActividad(actividad: Actividad, context: Context): Boolean {
+    val bd = this.writableDatabase
+    val values = ContentValues()
+
+    values.put("nombre", actividad.nombre)
+    values.put("precio", actividad.precio)
+
+    val resultado = bd.insert("actividad", null, values)
+    bd.close()
+
+    return if (resultado != -1L) {
+        Toast.makeText(context, "Actividad registrada exitosamente", Toast.LENGTH_SHORT).show()
+        true
+    } else {
+        Toast.makeText(context, "Error al registrar actividad", Toast.LENGTH_SHORT).show()
+        false
+    }
+}
+
+fun obtenerTodasLasActividades(): List<Actividad> {
+    val bd = this.readableDatabase
+    val cursor = bd.rawQuery("SELECT * FROM actividad ORDER BY nombre", null)
+    val actividades = mutableListOf<Actividad>()
+
+    if (cursor.moveToFirst()) {
+        do {
+            val actividad = Actividad(
+                id_actividad = cursor.getInt(cursor.getColumnIndexOrThrow("id_actividad")),
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                precio = cursor.getFloat(cursor.getColumnIndexOrThrow("precio"))
+            )
+            actividades.add(actividad)
+        } while (cursor.moveToNext())
+    }
+
+    cursor.close()
+    bd.close()
+    return actividades
+}
+fun registrarActividadCobrada(actividadCobrada: ActividadCobrada, context: Context): Boolean {
+    val bd = this.writableDatabase
+    val values = ContentValues()
+
+    val calendar = Calendar.getInstance()
+    val formatoFecha = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault())
+    val fechaActual = formatoFecha.format(calendar.time)
+
+    values.put("nombre_actividad", actividadCobrada.nombre_actividad)
+    values.put("nombre_cliente", actividadCobrada.nombre_cliente)
+    values.put("apellido_cliente", actividadCobrada.apellido_cliente)
+    values.put("dni_cliente", actividadCobrada.dni_cliente)
+    values.put("costo", actividadCobrada.costo)
+    values.put("fecha", fechaActual)
+
+    val resultado = bd.insert("actividad_cobrada", null, values)
+    bd.close()
+
+    return if (resultado != -1L) {
+        Toast.makeText(context, "Actividad cobrada registrada exitosamente", Toast.LENGTH_SHORT).show()
+        true
+    } else {
+        Toast.makeText(context, "Error al registrar actividad cobrada", Toast.LENGTH_SHORT).show()
+        false
+    }
+}
+
+fun obtenerActividadesCobradas(dni: String): List<ActividadCobrada> {
+    val bd = this.readableDatabase
+    val cursor = bd.rawQuery(
+        "SELECT * FROM actividad_cobrada WHERE dni_cliente = ? ORDER BY fecha DESC",
+        arrayOf(dni)
+    )
+    val actividadesCobradas = mutableListOf<ActividadCobrada>()
+
+    if (cursor.moveToFirst()) {
+        do {
+            val actividadCobrada = ActividadCobrada(
+                id_actividad_cobrada = cursor.getInt(cursor.getColumnIndexOrThrow("id_actividad_cobrada")),
+                nombre_actividad = cursor.getString(cursor.getColumnIndexOrThrow("nombre_actividad")),
+                nombre_cliente = cursor.getString(cursor.getColumnIndexOrThrow("nombre_cliente")),
+                apellido_cliente = cursor.getString(cursor.getColumnIndexOrThrow("apellido_cliente")),
+                dni_cliente = cursor.getString(cursor.getColumnIndexOrThrow("dni_cliente")),
+                costo = cursor.getFloat(cursor.getColumnIndexOrThrow("costo")),
+                fecha = cursor.getString(cursor.getColumnIndexOrThrow("fecha"))
+            )
+            actividadesCobradas.add(actividadCobrada)
+        } while (cursor.moveToNext())
+    }
+
+    cursor.close()
+    bd.close()
+    return actividadesCobradas
+}
+
+fun obtenerTodasLasActividadesCobradas(): List<ActividadCobrada> {
+    val bd = this.readableDatabase
+    val cursor = bd.rawQuery("SELECT * FROM actividad_cobrada ORDER BY fecha DESC", null)
+    val actividadesCobradas = mutableListOf<ActividadCobrada>()
+
+    if (cursor.moveToFirst()) {
+        do {
+            val actividadCobrada = ActividadCobrada(
+                id_actividad_cobrada = cursor.getInt(cursor.getColumnIndexOrThrow("id_actividad_cobrada")),
+                nombre_actividad = cursor.getString(cursor.getColumnIndexOrThrow("nombre_actividad")),
+                nombre_cliente = cursor.getString(cursor.getColumnIndexOrThrow("nombre_cliente")),
+                apellido_cliente = cursor.getString(cursor.getColumnIndexOrThrow("apellido_cliente")),
+                dni_cliente = cursor.getString(cursor.getColumnIndexOrThrow("dni_cliente")),
+                costo = cursor.getFloat(cursor.getColumnIndexOrThrow("costo")),
+                fecha = cursor.getString(cursor.getColumnIndexOrThrow("fecha"))
+            )
+            actividadesCobradas.add(actividadCobrada)
+        } while (cursor.moveToNext())
+    }
+
+    cursor.close()
+    bd.close()
+    return actividadesCobradas
+}
+
+fun obtenerResumenActividadesPorCliente(): List<ClienteConActividades> {
+    val bd = this.readableDatabase
+    val cursor = bd.rawQuery(
+        """
+        SELECT DISTINCT c.*, ac.dni_cliente 
+        FROM cliente c 
+        INNER JOIN actividad_cobrada ac ON c.dni = ac.dni_cliente 
+        ORDER BY c.apellido, c.nombre
+        """, null
+    )
+    
+    val clientesConActividades = mutableListOf<ClienteConActividades>()
+    
+    if (cursor.moveToFirst()) {
+        do {
+            val cliente = Cliente(
+                id_cliente = cursor.getInt(cursor.getColumnIndexOrThrow("id_cliente")),
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido")),
+                dni = cursor.getString(cursor.getColumnIndexOrThrow("dni")),
+                domicilio = cursor.getString(cursor.getColumnIndexOrThrow("domicilio")),
+                telefono = cursor.getString(cursor.getColumnIndexOrThrow("telefono")),
+                email = cursor.getString(cursor.getColumnIndexOrThrow("email")),
+                aptoFisico = cursor.getInt(cursor.getColumnIndexOrThrow("aptoFisico")) == 1,
+                socio = cursor.getInt(cursor.getColumnIndexOrThrow("socio")) == 1,
+                numeroCarnet = cursor.getInt(cursor.getColumnIndexOrThrow("numeroCarnet")),
+                fechaAlta = cursor.getString(cursor.getColumnIndexOrThrow("fechaAlta"))
+            )
+            
+            val actividades = obtenerActividadesCobradas(cliente.dni)
+            clientesConActividades.add(ClienteConActividades(cliente, actividades))
+            
+        } while (cursor.moveToNext())
+    }
+    
+    cursor.close()
+    bd.close()
+    return clientesConActividades
+}
 }
 
 

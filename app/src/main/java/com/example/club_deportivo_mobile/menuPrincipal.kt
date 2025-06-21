@@ -28,9 +28,9 @@ class menuPrincipal : AppCompatActivity() {
         val btnActividades = findViewById<Button>(R.id.btn_actividades_socio)
         val btnCobrar = findViewById<Button>(R.id.btn_cobrar)
         val btnVtos = findViewById<Button>(R.id.btn_vtos)
+        val btnActivity = findViewById<Button>(R.id.btn_activity) // Nuevo botón
         val cerrarSesion = findViewById<ImageView>(R.id.img_cerrar_sesion)
         val salir = findViewById<TextView>(R.id.tv_salir)
-
 
         btnRegistrar.setOnClickListener{
             var intent = Intent(this, registrar_cliente::class.java)
@@ -57,6 +57,12 @@ class menuPrincipal : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Nuevo listener para Activity
+        btnActivity.setOnClickListener {
+            var intent = Intent(this, activity_menu::class.java)
+            startActivity(intent)
+        }
+
         cerrarSesion.setOnClickListener {
             var intent = Intent(this, login::class.java)
             startActivity(intent)
@@ -66,7 +72,5 @@ class menuPrincipal : AppCompatActivity() {
             var intent = Intent(this, login::class.java)
             startActivity(intent)
         }
-
-
     }
 }
