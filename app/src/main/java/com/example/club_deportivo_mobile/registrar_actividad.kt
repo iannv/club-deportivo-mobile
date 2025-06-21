@@ -77,7 +77,6 @@ class registrar_actividad : AppCompatActivity() {
             dbHelper.registrarActividad(actividad, this)
             Toast.makeText(this, "Actividad registrada exitosamente", Toast.LENGTH_SHORT).show()
             
-            // Limpiar campos
             etNombre.text.clear()
             etPrecio.text.clear()
             tvMensaje.text = ""

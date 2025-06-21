@@ -66,7 +66,6 @@ class actividades_socio : AppCompatActivity() {
     }
     
     private fun cargarTodasLasActividades() {
-        // Obtener todas las actividades cobradas agrupadas por cliente
         val todasLasActividades = dbHelper.obtenerTodasLasActividadesCobradas()
         
         if (todasLasActividades.isEmpty()) {
@@ -74,14 +73,11 @@ class actividades_socio : AppCompatActivity() {
             return
         }
         
-        // Agrupar por DNI del cliente
         val actividadesPorCliente = todasLasActividades.groupBy { it.dni_cliente }
         
-        // Limpiar container
         containerActividades.removeAllViews()
         
         actividadesPorCliente.forEach { (dni, actividades) ->
-            // Buscar datos completos del cliente
             val cliente = dbHelper.buscarClientePorDni(dni)
             if (cliente != null) {
                 agregarClienteConActividades(cliente, actividades)
@@ -101,7 +97,6 @@ class actividades_socio : AppCompatActivity() {
         
         val actividades = dbHelper.obtenerActividadesCobradas(dni)
         
-        // Limpiar container
         containerActividades.removeAllViews()
         
         if (actividades.isEmpty()) {
@@ -113,7 +108,6 @@ class actividades_socio : AppCompatActivity() {
     }
     
     private fun agregarClienteConActividades(cliente: Cliente, actividades: List<ActividadCobrada>) {
-        // Crear CardView para el cliente
         val cardView = CardView(this)
         val layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -127,12 +121,10 @@ class actividades_socio : AppCompatActivity() {
         cardView.cardElevation = dpToPx(4).toFloat()
         cardView.useCompatPadding = true
         
-        // Crear LinearLayout principal
         val mainLayout = LinearLayout(this)
         mainLayout.orientation = LinearLayout.VERTICAL
         mainLayout.setPadding(dpToPx(16), dpToPx(16), dpToPx(16), dpToPx(16))
         
-        // Nombre del cliente
         val tvNombreCliente = TextView(this)
         tvNombreCliente.text = "${cliente.apellido}, ${cliente.nombre}"
         tvNombreCliente.textSize = 16f
@@ -140,7 +132,6 @@ class actividades_socio : AppCompatActivity() {
         tvNombreCliente.setTextColor(getColor(R.color.black))
         mainLayout.addView(tvNombreCliente)
         
-        // Información del cliente
         val infoLayout = LinearLayout(this)
         infoLayout.orientation = LinearLayout.HORIZONTAL
         val infoLayoutParams = LinearLayout.LayoutParams(
@@ -150,7 +141,6 @@ class actividades_socio : AppCompatActivity() {
         infoLayoutParams.topMargin = dpToPx(8)
         infoLayout.layoutParams = infoLayoutParams
         
-        // DNI
         val tvDniLabel = TextView(this)
         tvDniLabel.text = "DNI: "
         tvDniLabel.textSize = 14f
@@ -162,7 +152,6 @@ class actividades_socio : AppCompatActivity() {
         tvDniValor.textSize = 14f
         tvDniValor.setTextColor(getColor(R.color.black))
         
-        // Socio
         val tvSocioLabel = TextView(this)
         tvSocioLabel.text = "  |  SOCIO: "
         tvSocioLabel.textSize = 14f
@@ -180,7 +169,6 @@ class actividades_socio : AppCompatActivity() {
         infoLayout.addView(tvSocioValor)
         mainLayout.addView(infoLayout)
         
-        // Lista de actividades
         val tvActividadesLabel = TextView(this)
         tvActividadesLabel.text = "ACTIVIDADES REALIZADAS:"
         tvActividadesLabel.textSize = 14f
@@ -194,7 +182,6 @@ class actividades_socio : AppCompatActivity() {
         tvActividadesLabel.layoutParams = actividadesLabelParams
         mainLayout.addView(tvActividadesLabel)
         
-        // Mostrar cada actividad
         actividades.forEach { actividad ->
             val tvActividad = TextView(this)
             val fechaFormateada = formatearFecha(actividad.fecha)
@@ -205,7 +192,6 @@ class actividades_socio : AppCompatActivity() {
             mainLayout.addView(tvActividad)
         }
         
-        // Total gastado
         val totalGastado = actividades.sumOf { it.costo.toDouble() }
         val tvTotal = TextView(this)
         tvTotal.text = "TOTAL GASTADO: $${String.format("%.2f", totalGastado)}"

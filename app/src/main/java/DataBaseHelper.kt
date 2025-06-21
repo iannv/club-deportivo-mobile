@@ -1,8 +1,10 @@
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import dto.ClienteDTO
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -18,7 +20,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
     db?.execSQL(CREATE_CLIENTE_TABLE)
     db?.execSQL(CREATE_ACTIVIDAD_TABLE)
     db?.execSQL(CREATE_CUOTA_TABLE)
-    db?.execSQL(CREATE_ACTIVIDAD_COBRADA_TABLE) // Nueva línea
+    db?.execSQL(CREATE_ACTIVIDAD_COBRADA_TABLE)
 
     db?.execSQL("INSERT INTO rol(nombre) VALUES('administrador')")
     db?.execSQL("INSERT INTO usuario(nombreUsuario, clave, activo, rol) VALUES('admin', '123', 1, 1)")
@@ -30,7 +32,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
     db?.execSQL("DROP TABLE IF EXISTS cliente")
     db?.execSQL("DROP TABLE IF EXISTS actividad")
     db?.execSQL("DROP TABLE IF EXISTS cuota")
-    db?.execSQL("DROP TABLE IF EXISTS actividad_cobrada") // Nueva línea
+    db?.execSQL("DROP TABLE IF EXISTS actividad_cobrada")
     onCreate(db)
 }
 
@@ -198,7 +200,34 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
         return monto
     }
 
-    // actividades
+
+    fun listadoDeVencimientos(fecha:String):List<ClienteDTO> {
+        val db: SQLiteDatabase = readableDatabase
+        val sql: String = "SELECT c.id_cliente,c.nombre,c.apellido,c.numeroCarnet " +
+                "FROM cliente AS c INNER JOIN cuota AS k ON c.id_cliente = k.id_cliente " +
+                "WHERE k.fechaVto = " + "'" + fecha + "'"
+
+        val cursor: Cursor = db.rawQuery(sql, null);
+
+        var lista: MutableList<ClienteDTO> = mutableListOf()
+
+        while (cursor.moveToNext()) {
+            var cliente: ClienteDTO? = null
+
+            cliente = ClienteDTO(
+                id_cliente = cursor.getInt(cursor.getColumnIndexOrThrow("id_cliente")),
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                apellido = cursor.getString(cursor.getColumnIndexOrThrow("apellido")),
+                numeroCarnet = cursor.getInt(cursor.getColumnIndexOrThrow("numeroCarnet"))
+            )
+            lista.add(cliente)
+        }
+        cursor.close()
+        db.close()
+        return lista
+    }
+
+        // actividades
 
     fun registrarActividad(actividad: Actividad, context: Context): Boolean {
     val bd = this.writableDatabase
@@ -358,7 +387,16 @@ fun obtenerResumenActividadesPorCliente(): List<ClienteConActividades> {
     bd.close()
     return clientesConActividades
 }
+
 }
+
+
+
+
+    
+
+
+
 
 
 
