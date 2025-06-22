@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cobrar3">
+
+
+    <TextView
+        android:id="@+id/montoC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="placeholder"
+        app:layout_constraintStart_toEndOf="@+id/labela8"
+        app:layout_constraintTop_toBottomOf="@+id/fechaC3" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="412dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:background="#212121"
+        android:minHeight="50dp"
+        android:theme="?attr/actionButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/img_volver_buscar3"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:srcCompat="@drawable/volver" />
+
+    <TextView
+        android:id="@+id/tv_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/rem"
+        android:text="Admin"
+        android:textColor="#606060"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="12dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_menu"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin"
+        app:srcCompat="@drawable/admin" />
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/rem_bold"
+        android:text="Cobrar cuota \no actividad"
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+
+    <Button
+        android:id="@+id/tv_btnImprimir"
+        android:layout_width="167dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#212121"
+        android:fontFamily="@font/rem_medium"
+        android:text="IMPRIMIR"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:strokeColor="#070707" />
+
+    <Button
+        android:id="@+id/tv_btnVolver"
+        android:layout_width="156dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="25dp"
+        android:width="20dp"
+        android:backgroundTint="@android:color/transparent"
+        android:fontFamily="@font/rem_medium"
+        android:text="VOLVER"
+        android:textColor="#0B0A0A"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#212121"
+        app:strokeWidth="1dp" />
+
+
+    <TextView
+        android:id="@+id/labela3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/rem_light"
+        android:text="Nombre:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labela4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labela1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/rem_medium"
+        android:text="Comprobante de pago"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labela2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labela2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="36dp"
+        android:fontFamily="@font/rem_light"
+        android:text="Socio n°:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labela3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labela4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="@font/rem_light"
+        android:text="Apellido:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labela6"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labela6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="24dp"
+        android:fontFamily="@font/rem_light"
+        android:text="SOCIO"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labela7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labela7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/rem_light"
+        android:text="Fecha:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labela8"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labela8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="76dp"
+        android:fontFamily="@font/rem_light"
+        android:text="Monto:"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_btnVolver"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/numeroSocioC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="49dp"
+        app:layout_constraintStart_toEndOf="@+id/labela2"
+        app:layout_constraintTop_toBottomOf="@+id/labela1"
+        tools:text="placeholder" />
+
+    <TextView
+        android:id="@+id/nombreC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:text="placeholder"
+        app:layout_constraintStart_toEndOf="@+id/labela3"
+        app:layout_constraintTop_toBottomOf="@+id/numeroSocioC3" />
+
+    <TextView
+        android:id="@+id/apellidoC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="14dp"
+        android:text="placeholder"
+        app:layout_constraintStart_toEndOf="@+id/labela4"
+        app:layout_constraintTop_toBottomOf="@+id/nombreC3" />
+
+    <TextView
+        android:id="@+id/fechaC3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="88dp"
+        android:text="placeholder"
+        app:layout_constraintStart_toEndOf="@+id/labela7"
+        app:layout_constraintTop_toBottomOf="@+id/apellidoC3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

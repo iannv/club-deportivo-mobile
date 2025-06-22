@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    tools:context=".registro_contacto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/rem"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/obl4"
+                android:layout_width="30dp"
+                android:layout_height="29dp"
+                android:layout_weight="1"
+                android:src="@drawable/asterisco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_tel"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/rem"
+                android:hint="Teléfono"
+                android:inputType="phone"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/obl5"
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:src="@drawable/asterisco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_domicilio"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/rem"
+                android:hint="Domicilio"
+                android:inputType="text"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/obl6"
+                android:layout_width="37dp"
+                android:layout_height="26dp"
+                android:layout_weight="1"
+                android:src="@drawable/asterisco" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mjeContacto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/rem"
+            android:textColor="#D64646"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnLimpiar2"
+                android:layout_width="156dp"
+                android:layout_height="52dp"
+                android:layout_marginRight="20dp"
+                android:width="20dp"
+                android:backgroundTint="@android:color/transparent"
+                android:fontFamily="@font/rem_medium"
+                android:text="LIMPIAR"
+                android:textColor="#212121"
+                android:textSize="14sp"
+                app:cornerRadius="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAuxRecuadro"
+                app:layout_constraintVertical_bias="0.744"
+                app:strokeColor="#212121"
+                app:strokeWidth="1dp" />
+
+            <Button
+                android:id="@+id/btnRegistrar"
+                android:layout_width="167dp"
+                android:layout_height="53dp"
+                android:backgroundTint="#212121"
+                android:fontFamily="@font/rem_medium"
+                android:text="REGISTRAR"
+                android:textSize="14sp"
+                app:cornerRadius="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAuxRecuadro"
+                app:layout_constraintVertical_bias="0.738"
+                app:strokeColor="#070707" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

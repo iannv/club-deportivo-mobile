@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".actividades_socio">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_actividades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#212121"
+        android:minHeight="50dp"
+        android:theme="?attr/actionButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_volver_actividades"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_actividades"
+        app:srcCompat="@drawable/volver" />
+
+    <TextView
+        android:id="@+id/tv_admin_actividades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/rem"
+        android:text="Admin"
+        android:textColor="#606060"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_actividades" />
+
+    <ImageView
+        android:id="@+id/imageView_admin_actividades"
+        android:layout_width="12dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_admin_actividades"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin_actividades"
+        app:layout_constraintTop_toTopOf="@+id/tv_admin_actividades"
+        app:srcCompat="@drawable/admin" />
+
+    <TextView
+        android:id="@+id/tv_lista_actividades"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/rem_bold"
+        android:text="Actividades cobradas por cliente"
+        android:textColor="#212121"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_actividades" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_buscar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lista_actividades">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_search"
+                android:layout_marginEnd="8dp"/>
+
+            <EditText
+                android:id="@+id/et_buscar_dni"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Ingrese DNI del cliente"
+                android:fontFamily="@font/rem"
+                android:textSize="14sp"
+                android:background="@android:color/transparent"
+                android:inputType="number"/>
+
+            <Button
+                android:id="@+id/btn_buscar_actividades"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="BUSCAR"
+                android:fontFamily="@font/rem_medium"
+                android:textSize="12sp"
+                android:backgroundTint="#212121"
+                android:layout_marginStart="8dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/scroll_actividades"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_buscar">
+
+        <LinearLayout
+            android:id="@+id/container_actividades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <TextView
+                android:id="@+id/tv_mensaje_actividades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/rem"
+                android:text="Ingrese un DNI para buscar las actividades del cliente"
+                android:textAlignment="center"
+                android:textColor="#606060"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

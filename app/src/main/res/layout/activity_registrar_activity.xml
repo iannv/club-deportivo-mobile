@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registrar_actividad">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_registrar_actividad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#212121"
+        android:minHeight="50dp"
+        android:theme="?attr/actionButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_volver_registrar_actividad"
+        android:layout_width="28dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_registrar_actividad"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_registrar_actividad"
+        app:srcCompat="@drawable/volver" />
+
+    <TextView
+        android:id="@+id/tv_admin_registrar_actividad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/rem"
+        android:text="Admin"
+        android:textColor="#606060"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_registrar_actividad" />
+
+    <ImageView
+        android:id="@+id/imageView_admin_registrar_actividad"
+        android:layout_width="12dp"
+        android:layout_height="10dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_admin_registrar_actividad"
+        app:layout_constraintEnd_toStartOf="@+id/tv_admin_registrar_actividad"
+        app:layout_constraintTop_toTopOf="@+id/tv_admin_registrar_actividad"
+        app:srcCompat="@drawable/admin" />
+
+    <TextView
+        android:id="@+id/tv_registrar_actividad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/rem_bold"
+        android:text="Registrar Actividad"
+        android:textAlignment="center"
+        android:textColor="#212121"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_registrar_actividad" />
+
+    <EditText
+        android:id="@+id/et_nombre_actividad"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:fontFamily="@font/rem"
+        android:hint="Nombre de la actividad"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_registrar_actividad" />
+
+    <EditText
+        android:id="@+id/et_precio_actividad"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:fontFamily="@font/rem"
+        android:hint="Precio"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre_actividad" />
+
+    <Button
+        android:id="@+id/btn_guardar_actividad"
+        android:layout_width="300dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#212121"
+        android:fontFamily="@font/rem_medium"
+        android:text="GUARDAR ACTIVIDAD"
+        android:textSize="14sp"
+        app:cornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_precio_actividad"
+        app:strokeColor="#070707" />
+
+    <TextView
+        android:id="@+id/tv_mensaje_actividad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/rem"
+        android:textColor="#D64646"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_guardar_actividad" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
