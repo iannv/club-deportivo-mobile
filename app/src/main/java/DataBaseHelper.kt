@@ -12,29 +12,32 @@ import java.util.TimeZone
 
 class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeportivo.db",null, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
+        db?.execSQL(CREATE_ROL_TABLE)
+        db?.execSQL(CREATE_USUARIO_TABLE)
+        db?.execSQL(CREATE_CLIENTE_TABLE)
+        db?.execSQL(CREATE_ACTIVIDAD_TABLE)
+        db?.execSQL(CREATE_CUOTA_TABLE)
+        db?.execSQL(CREATE_ACTIVIDAD_COBRADA_TABLE)
 
-       
+        db?.execSQL("INSERT INTO rol(nombre) VALUES('administrador')")
+        db?.execSQL("INSERT INTO usuario(nombreUsuario, clave, activo, rol) VALUES('admin', '123', 1, 1)")
 
-    db?.execSQL(CREATE_ROL_TABLE)
-    db?.execSQL(CREATE_USUARIO_TABLE)
-    db?.execSQL(CREATE_CLIENTE_TABLE)
-    db?.execSQL(CREATE_ACTIVIDAD_TABLE)
-    db?.execSQL(CREATE_CUOTA_TABLE)
-    db?.execSQL(CREATE_ACTIVIDAD_COBRADA_TABLE)
-
-    db?.execSQL("INSERT INTO rol(nombre) VALUES('administrador')")
-    db?.execSQL("INSERT INTO usuario(nombreUsuario, clave, activo, rol) VALUES('admin', '123', 1, 1)")
-}
+        // Registros para el listado de vencimientos por defecto. Cambiar fechaVto
+        db?.execSQL("INSERT INTO cuota(id_cuota, id_cliente, monto, fechaPago, fechaVto) VALUES" +
+                "(100, 1, 20000, '2025-01-01', '22/06/2025')," +
+                "(101, 2, 35500, '2025-01-01', '22/06/2025')"
+        )
+    }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-    db?.execSQL("DROP TABLE IF EXISTS rol")
-    db?.execSQL("DROP TABLE IF EXISTS usuario")
-    db?.execSQL("DROP TABLE IF EXISTS cliente")
-    db?.execSQL("DROP TABLE IF EXISTS actividad")
-    db?.execSQL("DROP TABLE IF EXISTS cuota")
-    db?.execSQL("DROP TABLE IF EXISTS actividad_cobrada")
-    onCreate(db)
-}
+        db?.execSQL("DROP TABLE IF EXISTS rol")
+        db?.execSQL("DROP TABLE IF EXISTS usuario")
+        db?.execSQL("DROP TABLE IF EXISTS cliente")
+        db?.execSQL("DROP TABLE IF EXISTS actividad")
+        db?.execSQL("DROP TABLE IF EXISTS cuota")
+        db?.execSQL("DROP TABLE IF EXISTS actividad_cobrada")
+        onCreate(db)
+    }
 
     companion object{
         private const val CREATE_ROL_TABLE = "CREATE TABLE rol(id_rol INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT)"
@@ -82,7 +85,7 @@ class DataBaseHelper(contexto: Context) : SQLiteOpenHelper(contexto, "clubDeport
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // ****** REGISTRO DE NEUVO USUARIO ****** //
+    // ****** REGISTRO DE NUEVO USUARIO ****** //
     fun registrarUsuario(usuario: Usuario, contexto: Context) {
         val bd = this.writableDatabase
         val values = ContentValues()

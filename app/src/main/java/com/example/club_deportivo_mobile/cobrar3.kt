@@ -62,11 +62,6 @@ class cobrar3 : AppCompatActivity() {
             startActivity(intent)
         }
 
-        imgVolver.setOnClickListener {
-            val intent = Intent(this, cobrar2::class.java)
-            startActivity(intent)
-        }
-
         var imprimirBtn = findViewById<Button>(R.id.tv_btnImprimir)
 
         imprimirBtn.setOnClickListener{
